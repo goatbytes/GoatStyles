@@ -5,7 +5,7 @@
 
 :wave: Welcome to GoatStyles, a repository for professional code style guides, where we strive to uphold the highest standards of software engineering.
 
-In the realm of code style guides, we understand that opinions vary, and decisions often balance between necessity and subjectivity. However, amidst this diversity of perspectives, one principle remains paramount: consistency. Just as collaboration and cohesion within teams foster unity, a unified code style promotes clarity amidst diversity, enhancing comprehension and simplifying maintenance.
+In the realm of code style guides, we understand that opinions vary, and decisions often balance between necessity and subjectivity. However, amidst this diversity of perspectives, one principle remains paramount: __consistency__. Just as collaboration and cohesion within teams foster unity, a unified code style promotes clarity amidst diversity, enhancing comprehension and simplifying maintenance.
 
 By adhering to a consistent style, we aim to accelerate understanding and streamline maintenance, enabling engineers to navigate complex systems with ease. Championing accessibility and openness, we advocate for code that remains universally understandable, transcending individual preferences to embrace standards of clarity and coherence.
 
