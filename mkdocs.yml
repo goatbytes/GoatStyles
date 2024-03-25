@@ -80,11 +80,6 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - neoteroi.cards
-  - termynal:
-      title: bash
-      buttons: macos
-      prompt_literal_start:
-        - "$"
   - footnotes
   - attr_list
   - md_in_html
@@ -96,11 +91,6 @@ plugins:
   - git-revision-date-localized:
       type: timeago
       fallback_to_build_date: true
-  - termynal:
-      title: bash
-      buttons: macos
-      prompt_literal_start:
-        - "$"
 
 extra_css:
   - 'assets/css/app.css'
