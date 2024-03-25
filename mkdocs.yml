@@ -23,6 +23,7 @@ nav:
       - Shell: styles/shell.md
       - Swift: styles/swift.md
       - TypeScript: styles/typescript.md
+  - Contribute: contributing.md
   - About:
       - GoatBytes.IO: about.md
 
