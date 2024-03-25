@@ -1,0 +1,62 @@
+[
+  {
+    "title": "C++",
+    "url": "styles/cpp",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+  },
+  {
+    "title": "C#",
+    "url":  "styles/csharp",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg"
+  },
+  {
+    "title": "Dart",
+    "url":  "styles/dart",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg"
+  },
+  {
+    "title": "Go",
+    "url":  "styles/go",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg"
+  },
+  {
+    "title": "Java",
+    "url":  "styles/java",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+  },
+  {
+    "title": "JavaScript",
+    "url":  "styles/javascript",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+  },
+  {
+    "title": "Kotlin",
+    "url":  "styles/kotlin",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg"
+  },
+  {
+    "title": "Objective-C",
+    "url":  "styles/objc",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/objectivec/objectivec-plain.svg"
+  },
+  {
+    "title": "Python",
+    "url":  "styles/python",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+  },
+  {
+    "title": "Rust",
+    "url":  "styles/rust",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-line.svg"
+  },
+  {
+    "title": "Shell",
+    "url":  "styles/shell",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg"
+  },
+  {
+    "title": "Swift",
+    "url":  "styles/swift",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+  }
+]

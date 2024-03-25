@@ -1,0 +1,67 @@
+:root {
+    --md-primary-fg-color: #007BFF;
+    --md-primary-fg-color--light: #288EFA;
+    --md-primary-fg-color--dark: #005DC1;
+}
+
+/* region: Code Block Styles */
+
+/* Code Block: good-code */
+.highlight.good-code code, .highlight.good-code code *,
+.highlight.good-code .linenos, .highlight.good-code .linenos * {
+    background-color: #f3fbf9 !important;
+}
+
+/* Title: good-code */
+.highlight.good-code th, .highlight.good-code th * {
+    background-color: #2c7a7b !important;
+    color: #f0f3f4;
+}
+
+/* Code Block: bad-code */
+.highlight.bad-code code, .highlight.bad-code code *,
+.highlight.bad-code .linenos, .highlight.bad-code .linenos * {
+    background-color: #fcf3f6 !important;
+}
+
+/* Title: bad-code */
+.highlight.bad-code th, .highlight.bad-code th * {
+    background-color: #a8323e !important;
+    color: #f9f9f9;
+}
+
+
+[data-md-color-scheme="slate"] {
+
+    /* Code Block: good-code */
+
+    .highlight.good-code code, .highlight.good-code code *,
+    .highlight.good-code .linenos, .highlight.good-code .linenos * {
+        background-color: #1a2a2a !important;
+        color: #e0e0e0;
+    }
+
+    /* Title: good-code */
+
+    .highlight.good-code th, .highlight.good-code th * {
+        background-color: #20635c !important;
+        color: #e0e0e0;
+    }
+
+    /* Code Block: bad-code */
+
+    .highlight.bad-code code, .highlight.bad-code code *,
+    .highlight.bad-code .linenos, .highlight.bad-code .linenos * {
+        background-color: #2a1a1f !important;
+        color: #d1d1d1;
+    }
+
+    /* Title: bad-code */
+
+    .highlight.bad-code th, .highlight.bad-code th * {
+        background-color: #78202a !important;
+        color: #d1d1d1;
+    }
+}
+
+/* endregion */

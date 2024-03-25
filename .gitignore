@@ -1,0 +1,36 @@
+# Compiled output
+/build/
+/bin/
+/out/
+
+# Dependencies
+node_modules/
+
+# IDE-specific files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Compiled SCSS
+*.css.map
+*.css.map/
+
+# Logs and databases
+*.log
+*.log.*
+*.sqlite
+*.sqlite3
+
+# MKDocs generated site
+/site/
+/site
+
+# Gradle files
+.gradle/
+build/
+
+# Editor specific files
+*.swp
+*~
+

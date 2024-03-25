@@ -1,0 +1,126 @@
+site_name: "Code Style Guides"
+site_description: "The official code style guides for GoatBytes.IO, detailing best practices in application development, AI, security solutions, and software modernization."
+copyright: 'Copyright &copy; 2024 GoatBytes.IO.'
+site_url: https://goatbytes.github.io/GoatStyles
+repo_url: https://github.com/goatbytes/GoatStyles
+repo_name: GoatStyles on GitHub
+site_author: GoatBytes.IO
+remote_branch: gh-pages
+edit_uri: ""
+
+nav:
+  - Home: index.md
+  - Style Guides:
+      - C++: styles/cpp.md
+      - C#: styles/csharp.md
+      - Dart: styles/dart.md
+      - Go: styles/go.md
+      - Objective-C: styles/objc.md
+      - Java: styles/java.md
+      - JavaScript: styles/javascript.md
+      - Kotlin: styles/kotlin.md
+      - Python: styles/python.md
+      - Rust: styles/rust.md
+      - Shell: styles/shell.md
+      - Swift: styles/swift.md
+      - TypeScript: styles/typescript.md
+  - About:
+      - GoatBytes.IO: about.md
+
+theme:
+  name: 'material'
+  favicon: assets/img/favicon.png
+  logo: assets/img/logo.png
+  features:
+    - instant
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+    - content.code.annotate
+  palette:
+    - scheme: default # Palette toggle for light mode
+      media: "(prefers-color-scheme: light)"
+      primary: 'custom'
+      accent: 'white'
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate # Palette toggle for dark mode
+      media: "(prefers-color-scheme: dark)"
+      primary: 'custom'
+      accent: 'white'
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    heading: 'Red Hat Display'
+    text: 'Red Hat Text'
+    code: 'Red Hat Mono'
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - pymdownx.blocks.admonition
+  - pymdownx.blocks.tab:
+      alternate_style: true
+  - pymdownx.blocks.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.mark
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - neoteroi.cards
+  - termynal:
+      title: bash
+      buttons: macos
+      prompt_literal_start:
+        - "$"
+  - footnotes
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      type: timeago
+      fallback_to_build_date: true
+  - termynal:
+      title: bash
+      buttons: macos
+      prompt_literal_start:
+        - "$"
+
+extra_css:
+  - 'assets/css/app.css'
+  - 'assets/css/neoteroi-mkdocs.css'
+
+extra_javascript:
+  - 'assets/js/app.js'
+
+extra:
+  social:
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/goatbytes
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/goatbytes.io
+    - icon: fontawesome/brands/github
+      link: https://github.com/goatbytes
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/goatbytes
+  analytics:
+    provider: google
+    property: G-V0TQY16GNY
+  generator: false
+
