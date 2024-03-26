@@ -9,6 +9,7 @@ edit_uri: ""
 
 nav:
   - Home: index.md
+  - Foundational Code Standards: styles/foundational_code_standards.md
   - Style Guides:
       - C++: styles/cpp.md
       - C#: styles/csharp.md
@@ -68,6 +69,7 @@ markdown_extensions:
   - pymdownx.blocks.tab:
       alternate_style: true
   - pymdownx.blocks.details
+  - pymdownx.blocks.definition
   - pymdownx.superfences
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
