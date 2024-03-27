@@ -178,10 +178,10 @@ guidelines.
  * and provides a method to assess the goat's happiness based on specific conditions.
  *
  * **Usage Example:**
- * ```kotlin
+ * `
  * val billy = Goat("Billy", 5)
  * println(billy.isHappy(3)) // Prints true or false depending on the number of meals.
- * ```
+ * `
  * 
  * @property name The name of the goat.
  * @property age The age of the goat in years.
