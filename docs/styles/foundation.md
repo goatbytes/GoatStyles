@@ -826,52 +826,52 @@ fn main() {
 
 # Function demonstrating various style rules
 perform_operations() {
-    local x=$1
-    local y=$2
-    local sum=$((x + y)) # Space around operators
+  local x=$1
+  local y=$2
+  local sum=$((x + y)) # Space around operators
 
-    echo "Sum: $sum"
+  echo "Sum: $sum"
 
-    # Ternary-like operation using if-else
-    if [[ $sum -gt 10 ]]; then
-        message="Greater than 10"
-    else
-        message="Not greater than 10"
-    fi
-    echo "$message"
+  # Ternary-like operation using if-else
+  if [[ $sum -gt 10 ]]; then
+    message="Greater than 10"
+  else
+    message="Not greater than 10"
+  fi
+  echo "$message"
 
-    # If-else with spacing
-    if [[ $((sum % 2)) -eq 0 ]]; then
-        echo "Sum is even"
-    else
-        echo "Sum is odd"
-    fi
+  # If-else with spacing
+  if [[ $((sum % 2)) -eq 0 ]]; then
+    echo "Sum is even"
+  else
+    echo "Sum is odd"
+  fi
 
-    # For loop demonstrating continuation indent
-    for i in {0..4}; do
-        echo -n "$i " # Demonstrate space in concatenation
-    done
-    echo # New line after loop
+  # For loop demonstrating continuation indent
+  for i in {0..4}; do
+    echo -n "$i " # Demonstrate space in concatenation
+  done
+  echo # New line after loop
 
-    # Try-catch-finally block emulation using trap
-    {
-        throw_error_demo
-    } || {
-        echo "Caught an error."
-    }
+  # Try-catch-finally block emulation using trap
+  {
+    throw_error_demo
+  } || {
+    echo "Caught an error."
+  }
 }
 
 # Emulate throwing an error
 throw_error_demo() {
-    return 1 # Simulate an error
+  return 1 # Simulate an error
 }
 
 # Main execution
 if [[ $# -eq 2 ]]; then
-    perform_operations "$1" "$2"
+  perform_operations "$1" "$2"
 else
-    echo "Usage: $0 <num1> <num2>"
-    exit 1
+  echo "Usage: $0 <num1> <num2>"
+  exit 1
 fi
 ```
 ///
