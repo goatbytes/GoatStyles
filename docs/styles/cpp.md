@@ -12,7 +12,7 @@ C++-specific considerations.
 ## Formatting
 
 While our C++ formatting guidelines follows the [Foundational Code Standards][fnd-formatting] for
-formatting, the following exceptions apply:
+formatting, summarized below:
 
 - **Indentation:** Use 4 spaces for indentation.
 - **Continuation indent:** Use 8 spaces for line continuations.
