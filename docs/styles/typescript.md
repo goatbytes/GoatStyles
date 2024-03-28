@@ -4,8 +4,9 @@ This guide specifically addresses TypeScript development, focusing on idiomatic 
 and TypeScript-specific considerations.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for the purpose, scope, and general principles of our coding standards.
+/// admonition | 
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for TypeScript.
 ///
 [//]: # (@formatter:on)
 

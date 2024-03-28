@@ -4,8 +4,9 @@ This guide is designed to foster clean, maintainable, and idiomatic Objective-C 
 the community standards and best practices for Objective-C development.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for general principles, purpose, and scope guiding our coding practices.
+/// admonition | 
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Objective-C.
 ///
 [//]: # (@formatter:on)
 

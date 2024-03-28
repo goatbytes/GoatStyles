@@ -4,8 +4,9 @@ This guide specifically addresses C# development, focusing on idiomatic practice
 C#-specific considerations.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for the purpose, scope, and general principles of our coding standards.
+/// admonition |
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for C#.
 ///
 [//]: # (@formatter:on)
 

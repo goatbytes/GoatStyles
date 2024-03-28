@@ -4,8 +4,9 @@ This document outlines best practices and coding conventions for Go (Golang), ai
 that is clean, readable, maintainable, and idiomatic to the Go programming language.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for overarching principles, purpose, and scope that guide our coding practices.
+/// admonition |
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Go.
 ///
 [//]: # (@formatter:on)
 
@@ -70,20 +71,22 @@ import "fmt"
 
 // Goat represents a character in the game.
 type Goat struct {
-	Name  string
-	Score int
+    Name  string
+    Score int
 }
 
-// increaseScore uses a pointer to modify the Goat's score.
-func increaseScore(g *Goat, points int) {
-	g.Score += points
+// IncreaseScore increases the score of a Goat by the given number of points.
+// The Goat's score is modified in place using a pointer receiver.
+func IncreaseScore(g *Goat, points int) {
+    g.Score += points
 }
 
 func main() {
-	billy := Goat{Name: "Billy", Score: 10}
-	increaseScore(&billy, 5)
-	fmt.Printf("%s's new score: %d\n", billy.Name, billy.Score)
+    billy := Goat{Name: "Billy", Score: 10}
+    IncreaseScore(&billy, 5) // Demonstrates how to use a pointer receiver to modify a struct's field.
+    fmt.Printf("%s's new score: %d\n", billy.Name, billy.Score)
 }
+
 ```
 
 ### Goroutines and Channels

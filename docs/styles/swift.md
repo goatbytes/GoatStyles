@@ -4,8 +4,9 @@ This guide focuses on the best practices for writing Swift code, emphasizing rea
 maintainability, and adherence to modern Swift idioms.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for the overarching purpose, scope, and general principles that guide our coding standards.
+/// admonition | 
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Swift.
 ///
 [//]: # (@formatter:on)
 

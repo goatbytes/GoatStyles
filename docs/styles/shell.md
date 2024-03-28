@@ -5,8 +5,9 @@ focuses on best practices and idiomatic usage that enhance the readability and f
 scripts written in Bash or other shell languages.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for the purpose, scope, and general principles of our coding standards.
+/// admonition | 
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Shell.
 ///
 [//]: # (@formatter:on)
 

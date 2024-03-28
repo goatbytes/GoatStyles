@@ -4,8 +4,9 @@ This guide specifically addresses C++ development, focusing on idiomatic practic
 C++-specific considerations.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for the purpose, scope, and general principles of our coding standards.
+/// admonition |
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for C++.
 ///
 [//]: # (@formatter:on)
 
@@ -248,9 +249,8 @@ resources:
 - [**C++ Core Guidelines**](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines): An
   extensive set of guidelines maintained by the C++ community and the Standard C++ Foundation to
   help C++ programmers achieve higher code quality.
-- [**Effective Modern C++
-  **](https://www.oreilly.com/library/view/effective-modern-c/9781491908419/): A book by Scott
-  Meyers that covers the effective use of the C++11 and C++14 standards.
+- [**Effective Modern C++**][Effective Modern C++]: A book by Scott Meyers that covers the effective
+  use of the C++11 and C++14 standards.
 - [**The C++ Programming Language**](http://www.stroustrup.com/4th.html): Written by Bjarne
   Stroustrup, the creator of C++, this book provides comprehensive coverage of the C++ language,
   including its standard library and key design techniques.
@@ -262,4 +262,5 @@ resources:
 [fnd-formatting]: foundation.md#formatting
 [fnd-naming]: foundation.md#naming-conventions
 [fnd-docs]: foundation.md#documentation-and-comments
+[Effective Modern C++]: https://www.oreilly.com/library/view/effective-modern-c/9781491908419/
 [//]: # (@formatter:on)

@@ -4,8 +4,9 @@ This guide focuses on best practices and stylistic conventions for writing Rust 
 code that is not only efficient and safe but also clean, readable, and consistent.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for the overarching purpose, scope, and general principles that guide our coding standards.
+/// admonition | 
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Rust.
 ///
 [//]: # (@formatter:on)
 

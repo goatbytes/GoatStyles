@@ -1,18 +1,10 @@
 # Foundational Code Standards
 
+These Foundational Code Standards establish a core set of best practices for software development.
+They serve as the foundation for our language-specific style guides, promoting code clarity,
+consistency, maintainability, and security.
+
 ## General Principles
-
-### Collaboration and Communication
-
-Open communication and knowledge sharing are essential. Collaborative practices, such as code
-reviews and pair programming, enrich the development process, improving code quality and fostering a
-culture of continuous improvement.
-
-### Testability
-
-Prioritizing testability from the start is crucial for software reliability. Early adoption of
-testing frameworks and practices aids in timely identification and resolution of issues,
-contributing to the stability and robustness of the software.
 
 ### **COMPASS**: Navigate Your Way to Exceptional Code
 
@@ -29,10 +21,9 @@ strong foundation for success.
 
 - **Adopt a Unified Coding Standard:** Consistency minimizes complexity and fosters seamless
   collaboration. By adhering to a shared set of coding standards, developers can ensure their
-  codebase remains accessible and
-  maintainable for everyone. Readability and clarity are paramount, allowing developers of all
-  experience levels to navigate and understand the code with ease. This focus on consistency
-  promotes long-term maintainability of the project.
+  codebase remains accessible and maintainable for everyone. Readability and clarity are paramount,
+  allowing developers of all experience levels to navigate and understand the code with ease. This
+  focus on consistency promotes long-term maintainability of the project.
 
 ### **O**ptimized
 
@@ -97,22 +88,22 @@ conventions.
 
 ### Indentation
 
-- Use 2 spaces for indenation to ensure code is readable on various editors and platforms.
+- Use 2 spaces for indentation to ensure code is readable on various editors and platforms.
     - **Exceptions:**
-        - **Python:** Follow PEP 8's recommendation of 4 spaces.
-        - **Go:** Use tabs for indentation as prescribed by the `gofmt` tool.
+        - **C++**, **Python**, **Rust**: Use 4 spaces for indentation.
+        - **Go:** Use tabs for indentation.
 - Use 4 spaces for continuation lines to distinguish them from regular indents.
 
 ### Line Length
 
-- Enforce a maximum line length of 100 characters to improve readability and manageability.
-    - **Exceptions:** Allow flexibility in cases where breaking lines would reduce readability or
-      disrupt the logical flow of the code.
+- Enforce a maximum line length of 100 characters to improve readability and manageability.<br>
+  Allow flexibility in cases where breaking lines would reduce readability or disrupt the logical
+  flow of the code.
 
 ### Whitespace
 
-- Include a space before parentheses and the left brace `{` for control
-  structures (`if`, `for`, `while`, etc.).
+- Include a space before parentheses and the left brace `{` for control structures
+- (`if`, `for`, `while`, etc.).
 - Include Space around all operators (`->`, `=`, `+`, `*`, `/`, `>>`, etc.), except before unary and
   range operators.
 - Include a space before `else`, `catch`, and `finally` keywords.
@@ -145,882 +136,574 @@ Use blank lines strategically to separate logical blocks of code for better read
 
 ### Examples
 
+[//]: # (@formatter:off)
+
 /// tab | C++
-/// details | Formatted C++ Example Code
 
 ```cpp
-#include <iostream>
-#include <vector>
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 4 spaces for indentation (C++ exception).
+ * - 8 spaces for continuation lines (C++ exception).
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
 
-// Attributes used for demonstration
-[[nodiscard]] class Example {
+class WellFormattedCode { // (1)!
 public:
-  // Constructor with initializer list
-  Example(int x, int y) : x_(x), y_(y) {}
+    /**
+     * This method calculates the factorial of a given positive integer.
+     *
+     * @param n The non-negative integer for which to calculate the factorial.
+     * @return  The factorial of n, or throws an std::invalid_argument exception if n is negative.
+     * @throws std::invalid_argument If the provided number (n) is negative.
+     */
+    static long calculateFactorial(int n) { // (2)!
+        if (n < 0) { // (3)!
+            throw std::invalid_argument("Factorial is not defined for negative numbers.");
+        }
 
-  // Method declaration
-  void doSomething();
-
-private:
-  int x_;
-  int y_;
-
-  // Inner class
-  class Inner {
-  public:
-    void innerMethod() {
-      std::cout << "Inside innerMethod" << std::endl;
+        long result = 1;
+        for (int i = 2; i <= n; ++i) { // (4)!
+            result *= i;
+        }
+        return result;
     }
-  };
-
-  // Example of a static method
-  static void staticMethod() {
-    if (true) {
-      std::cout << "Static method called" << std::endl;
-    }
-  }
 };
-
-void Example::doSomething() {
-  Inner inner;
-  inner.innerMethod();
-
-  int sum = x_ + y_; // Demonstrating space around operator
-  std::cout << "Sum: " << sum << std::endl;
-
-  // For loop demonstrating continuation indent and spaces
-  for (int i = 0; i < 10; i += 2) {
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
-
-  // If-else structure
-  if (sum > 10) {
-    std::cout << "Sum is greater than 10" << std::endl;
-  } else {
-    std::cout << "Sum is 10 or less" << std::endl;
-  }
-
-  // Try-catch block
-  try {
-    throw std::runtime_error("Example exception");
-  } catch (const std::runtime_error& e) {
-    std::cout << "Caught an exception: " << e.what() << std::endl;
-  }
-}
-
-int main() {
-  Example example(5, 8);
-  example.doSomething();
-  Example::staticMethod();
-
-  return 0;
-}
 ```
 
-///
-///
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
 
+///
 /// tab | C#
-/// details | Formatted C# Example Code
 
 ```csharp
-using System;
-
-// Attribute used for demonstration
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-public class DemoAttribute : Attribute {}
-
-[Demo]
-public class Example {
-  private int x;
-  private int y;
-
-  // Constructor
-  public Example(int x, int y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  // Method demonstrating various style rules
-  public void PerformOperations() {
-    Inner inner = new Inner();
-    inner.Display();
-
-    int sum = x + y; // Space around operators
-    Console.WriteLine($"Sum: {sum}");
-
-    // Ternary operator with spaces
-    string message = sum > 10 ? "Greater than 10" : "Not greater than 10";
-    Console.WriteLine(message);
-
-    // If-else with spacing and brace style
-    if (sum % 2 == 0) {
-      Console.WriteLine("Sum is even");
-    } else {
-      Console.WriteLine("Sum is odd");
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - Indentation: 2 spaces (C# standard).
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style (opening brace on the same line as the statement).
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
+public class WellFormattedCode { // (1)!
+  /**
+   * This method calculates the factorial of a given positive integer.
+   *
+   * @param n The non-negative integer for which to calculate the factorial.
+   * @return  The factorial of n, or throws an ArgumentOutOfRangeException if n is negative.
+   * @throws ArgumentOutOfRangeException If the provided number (n) is negative.
+   */
+  public static long CalculateFactorial(int n) { // (2)!
+    if (n < 0) { // (3)!
+      throw new ArgumentOutOfRangeException(nameof(n), "Factorial is not defined for negative numbers.");
     }
 
-    // For loop demonstrating continuation indent
-    for (int i = 0; i < 5; i++) {
-      Console.Write(i + " "); // Demonstrate space in concatenation
+    long result = 1;
+    for (int i = 2; i <= n; i++) { // (4)!
+      result *= i;
     }
-    Console.WriteLine();
-
-    // Try-catch-finally block
-    try {
-      throw new InvalidOperationException("Demo exception");
-    } catch (InvalidOperationException ex) {
-      Console.WriteLine($"Caught exception: {ex.Message}");
-    } finally {
-      Console.WriteLine("Finally block executed");
-    }
-  }
-
-  // Inner class
-  private class Inner {
-    public void Display() {
-      Console.WriteLine("Inside Inner class");
-    }
-  }
-}
-
-class Program {
-  static void Main(string[] args) {
-    Example example = new Example(3, 7);
-    example.PerformOperations();
+    return result;
   }
 }
 ```
 
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
+/// tab | Dart
+
+```dart
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 2 spaces for indentation (Dart standard).
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
+class WellFormattedCode { // (1)!
+  /**
+   * This method calculates the factorial of a given positive integer.
+   *
+   * @param n The non-negative integer for which to calculate the factorial.
+   * @return The factorial of n, or throws an ArgumentError if n is negative.
+   * @throws ArgumentError If the provided number (n) is negative.
+   */
+  int calculateFactorial(int n) { // (2)!
+    if (n < 0) { // (3)!
+      throw ArgumentError('Factorial is not defined for negative numbers.');
+    }
+
+    int result = 1;
+    for (int i = 2; i <= n; i++) { // (4)!
+      result *= i;
+    }
+    return result;
+  }
+}
+```
+
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
 /// tab | Go
-/// details | Formatted Go Example Code
 
 ```go
-import 'dart:io';
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - Tabs for indentation (Go standard).
+ * - 8 spaces for continuation lines (Go exception).
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
+type WellFormattedCode struct{} // (1)!
 
-// Annotation used for demonstration
-class DemoAnnotation {
-  final String description;
-  const DemoAnnotation(this.description);
-}
-
-@DemoAnnotation('Main class demonstrating style rules')
-class Example {
-  final int x;
-  final int y;
-
-  // Constructor
-  Example(this.x, this.y);
-
-  // Method demonstrating various style rules
-  void performOperations() {
-    var inner = Inner();
-    inner.display();
-
-    var sum = x + y; // Space around operators
-    print('Sum: $sum');
-
-    // Ternary operator with spaces
-    var message = sum > 10 ? 'Greater than 10' : 'Not greater than 10';
-    print(message);
-
-    // If-else with spacing and brace style
-    if (sum % 2 == 0) {
-      print('Sum is even');
-    } else {
-      print('Sum is odd');
-    }
-
-    // For loop demonstrating continuation indent
-    for (var i = 0; i < 5; i++) {
-      stdout.write('$i '); // Demonstrate space in concatenation
-    }
-    print('');
-
-    // Try-catch-finally block
-    try {
-      throw FormatException('Demo exception');
-    } catch (e) {
-      print('Caught exception: $e');
-    } finally {
-      print('Finally block executed');
-    }
-  }
-
-  // Inner class
-  class Inner {
-    void display() {
-      print('Inside Inner class');
-    }
-  }
-}
-
-void main() {
-  var example = Example(3, 7);
-  example.performOperations();
+// calculateFactorial calculates the factorial of a given positive integer.
+//
+// @param n The non-negative integer for which to calculate the factorial.
+// @return The factorial of n, or throws a panic with an error message if n is negative.
+func (w *WellFormattedCode) calculateFactorial(n int) int64 { // (2)!
+	if n < 0 { // (3)!
+		panic("Factorial is not defined for negative numbers.")
+	}
+	
+	var result int64 = 1
+	for i := 2; i <= n; i++ { // (4)!
+		result *= int64(i)
+	}
+	return result
 }
 ```
 
-///
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
 /// tab | Java
-/// details | Formatted Java Example Code
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 2 spaces for indentation.
+ * - 4 spaces for continuation lines.
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
+public class WellFormattedCode { // (1)!
 
-// Annotation used for demonstration
-@interface DemoAnnotation {
-    String description();
-}
-
-@DemoAnnotation(description = "Class demonstrating style rules")
-public class Example {
-    private int x;
-    private int y;
-
-    // Constructor
-    public Example(int x, int y) {
-        this.x = x;
-        this.y = y;
+  /**
+   * This method calculates the factorial of a given positive integer. // Doc comment for method
+   *
+   * @param n The non-negative integer for which to calculate the factorial.
+   * @return  The factorial of n, or throws an IllegalArgumentException if n is negative.
+   * @throws IllegalArgumentException If the provided number (n) is negative.
+   */
+  public static long calculateFactorial(int n) { // (2)!
+    if (n < 0) { // (3)!
+      throw new IllegalArgumentException("Factorial is not defined for negative numbers.");
     }
 
-    // Method demonstrating various style rules
-    public void performOperations() {
-        Inner inner = new Inner();
-        inner.display();
-
-        int sum = x + y; // Space around operators
-        System.out.println("Sum: " + sum);
-
-        // Ternary operator with spaces
-        String message = sum > 10 ? "Greater than 10" : "Not greater than 10";
-        System.out.println(message);
-
-        // If-else with spacing and brace style
-        if (sum % 2 == 0) {
-            System.out.println("Sum is even");
-        } else {
-            System.out.println("Sum is odd");
-        }
-
-        // For loop demonstrating continuation indent
-        for (int i = 0; i < 5; i++) {
-            System.out.print(i + " "); // Demonstrate space in concatenation
-        }
-        System.out.println();
-
-        // Try-catch-finally block
-        try {
-            throw new Exception("Demo exception");
-        } catch (Exception ex) {
-            System.out.println("Caught exception: " + ex.getMessage());
-        } finally {
-            System.out.println("Finally block executed");
-        }
+    long result = 1;
+    for (int i = 2; i <= n; i++) {  // (4)!
+      result *= i;
     }
-
-    // Inner class
-    class Inner {
-        public void display() {
-            System.out.println("Inside Inner class");
-        }
-    }
-
-    public static void main(String[] args) {
-        Example example = new Example(3, 7);
-        example.performOperations();
-    }
+    return result;
+  }
 }
 ```
 
-///
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
 /// tab | JavaScript
-/// details | Formatted JavaScript Example Code
 
 ```javascript
-class Example {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  performOperations() {
-    const inner = new Inner();
-    inner.display();
-
-    const sum = this.x + this.y; // Space around operators
-    console.log(`Sum: ${sum}`);
-
-    // Ternary operator with spaces
-    const message = sum > 10 ? 'Greater than 10' : 'Not greater than 10';
-    console.log(message);
-
-    // If-else with spacing and brace style
-    if (sum % 2 === 0) {
-      console.log('Sum is even');
-    } else {
-      console.log('Sum is odd');
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 2 spaces for indentation
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
+class WellFormattedCode { // (1)!
+  /**
+   * This method calculates the factorial of a given positive integer.
+   *
+   * @param {number} n The non-negative integer for which to calculate the factorial.
+   * @return {number} The factorial of n, or throws a TypeError if n is negative.
+   * @throws {TypeError} If the provided number (n) is negative.
+   */
+  calculateFactorial(n) { // (2)!
+    if (n < 0) { // (3)!
+      throw new TypeError('Factorial is not defined for negative numbers.');
     }
 
-    // For loop demonstrating continuation indent
-    for (let i = 0; i < 5; i++) {
-      process.stdout.write(`${i} `); // Demonstrate space in concatenation
+    let result = 1;
+    for (let i = 2; i <= n; i++) { // (4)!
+      result *= i;
     }
-    console.log(); // New line after loop
-
-    // Try-catch-finally block
-    try {
-      throw new Error('Demo exception');
-    } catch (e) {
-      console.log(`Caught exception: ${e.message}`);
-    } finally {
-      console.log('Finally block executed');
-    }
-  }
-
-  // Inner class
-  static innerClass() {
-    class Inner {
-      display() {
-        console.log('Inside Inner class');
-      }
-    }
-
-    return Inner;
+    return result;
   }
 }
-
-// Using the inner class functionality
-const Inner = Example.innerClass();
-
-function main() {
-  const example = new Example(3, 7);
-  example.performOperations();
-}
-
-main();
 ```
 
-///
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
 /// tab | Kotlin
-/// details | Formatted Kotlin Example Code
 
 ```kotlin
-import kotlin.Exception
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 2 spaces for indentation.
+ * - 4 spaces for continuation lines.
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
+class WellFormattedCode { // (1)!
 
-// Annotation used for demonstration
-annotation class DemoAnnotation(val description: String)
-
-@DemoAnnotation(description = "Class demonstrating style rules")
-class Example(private val x: Int, private val y: Int) {
-
-  // Method demonstrating various style rules
-  fun performOperations() {
-    val inner = Inner()
-    inner.display()
-
-    val sum = x + y // Space around operators
-    println("Sum: $sum")
-
-    // Kotlin uses 'if' as its ternary operator
-    val message = if (sum > 10) "Greater than 10" else "Not greater than 10"
-    println(message)
-
-    // If-else with spacing and brace style
-    if (sum % 2 == 0) {
-      println("Sum is even")
-    } else {
-      println("Sum is odd")
+  /**
+   * This method calculates the factorial of a given positive integer. // Doc comment for method
+   *
+   * @param n The non-negative integer for which to calculate the factorial.
+   * @return  The factorial of n, or throws an IllegalArgumentException if n is negative.
+   * @throws IllegalArgumentException If the provided number (n) is negative.
+   */
+  fun calculateFactorial(n: Int): Long { // (2)!
+    if (n < 0) { // (3)!
+      throw IllegalArgumentException("Factorial is not defined for negative numbers.")
     }
 
-    // For loop demonstrating continuation indent
-    for (i in 0..4) {
-      print("$i ") // Demonstrate space in concatenation
+    var result = 1L
+    for (i in 2..n) {  // (4)!
+      result *= i
     }
-    println() // New line after loop
-
-    // Try-catch-finally block
-    try {
-      throw Exception("Demo exception")
-    } catch (e: Exception) {
-      println("Caught exception: ${e.message}")
-    } finally {
-      println("Finally block executed")
-    }
+    return result
   }
-
-  // Inner class
-  inner class Inner {
-    fun display() {
-      println("Inside Inner class")
-    }
-  }
-}
-
-fun main() {
-  val example = Example(3, 7)
-  example.performOperations()
 }
 ```
 
-///
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
 /// tab | Objective-C
-/// details | Formatted Objective-C Example Code
 
 ```objective-c
-#import <Foundation/Foundation.h>
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 2 spaces for indentation
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and method arguments.
+ * - Doc comments with aligned descriptions.
+ */
+@interface WellFormattedCode : NSObject
 
-// Interface for Example class
-@interface Example : NSObject {
-    int x;
-    int y;
-}
-
-// Constructor (initializer) declaration
-- (id)initWithX:(int)xValue andY:(int)yValue;
-
-// Method declaration
-- (void)performOperations;
-
-@end
-
-// Implementation of Example class
-@implementation Example
-
-// Constructor (initializer) implementation
-- (id)initWithX:(int)xValue andY:(int)yValue {
-    self = [super init];
-    if (self) {
-        x = xValue;
-        y = yValue;
-    }
-    return self;
-}
-
-// Method implementation
-- (void)performOperations {
-    Inner *inner = [[Inner alloc] init];
-    [inner display];
-    
-    int sum = x + y; // Space around operators
-    NSLog(@"Sum: %d", sum);
-    
-    // Ternary operator with spaces
-    NSString *message = sum > 10 ? @"Greater than 10" : @"Not greater than 10";
-    NSLog(@"%@", message);
-    
-    // If-else with spacing and brace style
-    if (sum % 2 == 0) {
-        NSLog(@"Sum is even");
-    } else {
-        NSLog(@"Sum is odd");
-    }
-    
-    // For loop demonstrating continuation indent
-    for (int i = 0; i < 5; i++) {
-        NSLog(@"%d ", i); // Demonstrate space in concatenation
-    }
-    
-    // Try-catch-finally block
-    @try {
-        [self throwErrorDemo];
-    } @catch (NSException *exception) {
-        NSLog(@"Caught an exception: %@", exception.reason);
-    } @finally {
-        NSLog(@"Finally block executed");
-    }
-}
-
-- (void)throwErrorDemo {
-    [NSException raise:@"DemoException" format:@"Demo exception"];
-}
+/**
+ * This method calculates the factorial of a given positive integer.
+ *
+ * @param n The non-negative integer for which to calculate the factorial.
+ * @return The factorial of n, or throws an NSException if n is negative.
+ * @throws NSException If the provided number (n) is negative.
+ */
+- (long)calculateFactorial:(int)n;
 
 @end
 
-// Interface for Inner class
-@interface Inner : NSObject
+@implementation WellFormattedCode // (1)!
 
-- (void)display;
+- (long)calculateFactorial:(int)n {  // (2)!
+  if (n < 0) {  // (3)!
+    @throw [NSException exceptionWithName:@"FactorialError"
+                                   reason:@"Factorial is not defined for negative numbers."
+                                 userInfo:nil];
+  }
 
-@end
-
-// Implementation of Inner class
-@implementation Inner
-
-- (void)display {
-    NSLog(@"Inside Inner class");
+  long result = 1;
+  for (int i = 2; i <= n; i++) {  // (4)!
+    result *= i;
+  }
+  return result;
 }
 
 @end
-
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        Example *example = [[Example alloc] initWithX:3 andY:7];
-        [example performOperations];
-    }
-    return 0;
-}
 ```
 
-///
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
 /// tab | Python
-/// details | Formatted Python Example Code
 
 ```python
-class Example:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+"""
+This class demonstrates proper code formatting following the specified style guide.
 
-    def perform_operations(self):
-        inner = self.Inner()
-        inner.display()
+**Formatting Rules:**
+ * 4 spaces for indentation (Python exception).
+ * Max line length of 100 characters.
+ * Spaces around operators, control structures, and keywords.
+ * K&R brace style.
+ * Consistent spacing for parameter lists and function arguments.
+ * Docstrings with aligned descriptions.
+"""
+class WellFormattedCode:  # (1)!
+    """
+    This method calculates the factorial of a given positive integer.
 
-        sum = self.x + self.y  # Space around operators
-        print(f"Sum: {sum}")
+    Args:
+            n: The non-negative integer for which to calculate the factorial.
 
-        # Ternary operator with spaces
-        message = "Greater than 10" if sum > 10 else "Not greater than 10"
-        print(message)
+    Returns:
+            The factorial of n, or throws a ValueError if n is negative.
 
-        # If-else with spacing
-        if sum % 2 == 0:
-            print("Sum is even")
-        else:
-            print("Sum is odd")
+    Raises:
+            ValueError: If the provided number (n) is negative.
+    """
+    def calculate_factorial(self, n: int) -> int:  # (2)!
+        if n < 0:  # (3)!
+            raise ValueError("Factorial is not defined for negative numbers.")
 
-        # For loop demonstrating indentation
-        for i in range(5):
-            print(i, end=" ")  # Demonstrate space in concatenation
-        print()  # New line after loop
-
-        # Try-except-finally block
-        try:
-            self.throw_error_demo()
-        except Exception as e:
-            print(f"Caught an exception: {e}")
-        finally:
-            print("Finally block executed")
-
-    def throw_error_demo(self):
-        raise Exception("Demo exception")
-
-    class Inner:
-        def display(self):
-            print("Inside Inner class")
-
-
-# Decorator for demonstration
-def demo_decorator(func):
-    def wrapper(*args, **kwargs):
-        print("Before calling function")
-        result = func(*args, **kwargs)
-        print("After calling function")
+        result = 1
+        for i in range(2, n + 1):  # (4)!
+            result *= i
         return result
-
-    return wrapper
-
-
-@demo_decorator
-def run_example():
-    example = Example(3, 7)
-    example.perform_operations()
-
-
-if __name__ == "__main__":
-    run_example()
 ```
 
-///
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
 /// tab | Rust
-/// details | Formatted Rust Example Code
 
 ```rust
-// Attribute used for demonstration
-#[derive(Debug)]
-struct Example {
-    x: i32,
-    y: i32,
-}
+//! This module demonstrates proper code formatting following the specified style guide.
 
-impl Example {
-    // Constructor pattern
-    fn new(x: i32, y: i32) -> Example {
-        Example { x, y }
-    }
+use std::error::Error;
 
-    // Method demonstrating various style rules
-    fn perform_operations(&self) -> Result<(), String> {
-        let inner = Inner {};
-        inner.display();
-
-        let sum = self.x + self.y; // Space around operators
-        println!("Sum: {}", sum);
-
-        // Rust pattern matching as a ternary operator alternative
-        let message = if sum > 10 { "Greater than 10" } else { "Not greater than 10" };
-        println!("{}", message);
-
-        // If-else with spacing and brace style
-        if sum % 2 == 0 {
-            println!("Sum is even");
-        } else {
-            println!("Sum is odd");
+/// This function calculates the factorial of a given positive integer.
+///
+/// # Arguments
+/// * `n` - The non-negative integer for which to calculate the factorial.
+///
+/// # Returns
+/// * The factorial of n, or a `Result` with an error if n is negative.
+///
+/// # Errors
+/// This function returns an error if the provided number (n) is negative.
+fn calculate_factorial(n: u32) -> Result<u64, Box<dyn Error>> { // (1)!
+    if n < 0 { // (2)!
+        Err(Box::new(std::fmt::Error::new("Factorial is not defined for negative numbers."))) 
+    } else {
+        let mut result = 1u64;
+        for i in 2..=n { // (3)!
+            result *= i;
         }
-
-        // For loop demonstrating continuation indent
-        for i in 0..5 {
-            print!("{} ", i); // Demonstrate space in concatenation
-        }
-        println!(); // New line after loop
-
-        // Rust's error handling with Result and match
-        match self.error_demo() {
-            Ok(_) => println!("No error"),
-            Err(e) => println!("Caught an error: {}", e),
-        }
-
-        Ok(())
-    }
-
-    // Demonstrating Rust's error handling
-    fn error_demo(&self) -> Result<(), String> {
-        Err("Demo exception".to_string())
-    }
-}
-
-// Inner struct
-struct Inner {}
-
-impl Inner {
-    fn display(&self) {
-        println!("Inside Inner struct");
-    }
-}
-
-fn main() {
-    let example = Example::new(3, 7);
-    match example.perform_operations() {
-        Ok(_) => (),
-        Err(e) => eprintln!("Error performing operations: {}", e),
+        Ok(result)
     }
 }
 ```
 
-///
+1.    **snake_case** for function and method names, local variables, struct fields, macro names, 
+      and properties
+2.    K&R brace style for blocks.
+3.    Proper spacing around operators and control structures.
+
 ///
 /// tab | Shell
-/// details | Formatted Shell Script Example Code
+
 ```shell
 #!/bin/bash
 
-# Function demonstrating various style rules
-perform_operations() {
-  local x=$1
-  local y=$2
-  local sum=$((x + y)) # Space around operators
+# This script demonstrates proper code formatting following the specified style guide.
 
-  echo "Sum: $sum"
+# Formatting Rules:
+# - Uses shebang (#!) for interpreter declaration.
+# - 2 spaces for indentation.
+# - Max line length of 100 characters (recommended).
+# - Meaningful variable names.
+# - Consistent spacing around operators and control structures.
+# - Use of comments to explain complex logic.
+# - Error handling (optional for this example).
 
-  # Ternary-like operation using if-else
-  if [[ $sum -gt 10 ]]; then
-    message="Greater than 10"
-  else
-    message="Not greater than 10"
-  fi
-  echo "$message"
-
-  # If-else with spacing
-  if [[ $((sum % 2)) -eq 0 ]]; then
-    echo "Sum is even"
-  else
-    echo "Sum is odd"
+# Function to calculate the factorial of a non-negative integer
+calculate_factorial() {
+  # Check if a number is provided as an argument
+  if [[ -z "$1" ]]; then
+    echo "Error: Please provide a non-negative integer as an argument."
+    exit 1
   fi
 
-  # For loop demonstrating continuation indent
-  for i in {0..4}; do
-    echo -n "$i " # Demonstrate space in concatenation
+  # Check if the argument is negative
+  if [[ "$1" -lt 0 ]]; then
+    echo "Error: Factorial is not defined for negative numbers."
+    exit 1
+  fi
+
+  # Local variable for result
+  local result=1
+
+  # Calculate factorial using a loop
+  for (( i=2; i<=$1; i++ )); do
+    result=$(( result * i ))
   done
-  echo # New line after loop
 
-  # Try-catch-finally block emulation using trap
-  {
-    throw_error_demo
-  } || {
-    echo "Caught an error."
-  }
+  # Print the factorial result
+  echo "The factorial of $1 is: $result"
 }
 
-# Emulate throwing an error
-throw_error_demo() {
-  return 1 # Simulate an error
-}
-
-# Main execution
-if [[ $# -eq 2 ]]; then
-  perform_operations "$1" "$2"
-else
-  echo "Usage: $0 <num1> <num2>"
-  exit 1
-fi
+# Call the function with a non-negative integer argument
+calculate_factorial $2
 ```
-///
+
 ///
 /// tab | Swift
-/// details | Formatted Swift Example Code
 
 ```swift
-import Foundation
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 2 spaces for indentation (Swift standard).
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and method arguments.
+ * - Doc comments with aligned descriptions.
+ */
+class WellFormattedCode { // (1)!
 
-// Attribute used for demonstration (Swift uses Attributes similar to annotations)
-@objcMembers
-class Example: NSObject {
-    private var x: Int
-    private var y: Int
-
-    // Initializer
-    init(x: Int, y: Int) {
-        self.x = x
-        self.y = y
+  /**
+   * This method calculates the factorial of a given positive integer.
+   *
+   * @param n The non-negative integer for which to calculate the factorial.
+   * @return  The factorial of n, or throws an IllegalArgumentException if n is negative.
+   * @throws IllegalArgumentException If the provided number (n) is negative.
+   */
+  func calculateFactorial(n: Int) -> Long { // (2)!
+    if n < 0 { // (3)!
+      throw IllegalArgumentException("Factorial is not defined for negative numbers.")
     }
 
-    // Method demonstrating various style rules
-    func performOperations() {
-        let inner = Inner()
-        inner.display()
-
-        let sum = x + y // Space around operators
-        print("Sum: \(sum)")
-
-        // Ternary operator with spaces
-        let message = sum > 10 ? "Greater than 10" : "Not greater than 10"
-        print(message)
-
-        // If-else with spacing and brace style
-        if sum % 2 == 0 {
-            print("Sum is even")
-        } else {
-            print("Sum is odd")
-        }
-
-        // For loop demonstrating continuation indent
-        for i in 0..<5 {
-            print("\(i) ", terminator: "") // Demonstrate space in concatenation
-        }
-        print("") // New line after loop
-
-        // Swift's error handling
-        do {
-            try throwErrorDemo()
-        } catch {
-            print("Caught an error: \(error)")
-        }
+    var result = 1
+    for i in 2...n { // (4)!
+      result *= i
     }
-
-    // Demonstrating Swift's error handling
-    func throwErrorDemo() throws {
-        throw NSError(domain: "com.example", code: 1, userInfo: nil)
-    }
-
-    // Inner class
-    class Inner {
-        func display() {
-            print("Inside Inner class")
-        }
-    }
+    return result
+  }
 }
-
-// Main execution
-let example = Example(x: 3, y: 7)
-example.performOperations()
 ```
 
-///
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
 /// tab | TypeScript
-/// details | Formatted TypeScript Example Code
 
 ```typescript
-import "reflect-metadata";
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 2 spaces for indentation (TypeScript standard).
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
 
-// Decorator used for demonstration
-function DemoDecorator(target: Function) {
-  // Decorator logic or metadata assignment
-  Reflect.defineMetadata("demo", "Class demonstrating style rules", target);
-}
+class WellFormattedCode { // (1)!
 
-@DemoDecorator
-class Example {
-  private x: number;
-  private y: number;
-
-  // Constructor
-  constructor(x: number, y: number) {
-    this.x = x;
-    this.y = y;
-  }
-
-  // Method demonstrating various style rules
-  public performOperations(): void {
-    const inner = new Inner();
-    inner.display();
-
-    const sum = this.x + this.y; // Space around operators
-    console.log(`Sum: ${sum}`);
-
-    // Ternary operator with spaces
-    const message = sum > 10 ? 'Greater than 10' : 'Not greater than 10';
-    console.log(message);
-
-    // If-else with spacing and brace style
-    if (sum % 2 === 0) {
-      console.log('Sum is even');
-    } else {
-      console.log('Sum is odd');
+  /**
+   * This method calculates the factorial of a given positive integer.
+   *
+   * @param n The non-negative integer for which to calculate the factorial.
+   * @return  The factorial of n, or throws an error if n is negative.
+   * @throws {Error} If the provided number (n) is negative.
+   */
+  public calculateFactorial/* (2)! */(n: number): number {
+    if (n < 0) { // (3)!
+      throw new Error('Factorial is not defined for negative numbers.');
     }
 
-    // For loop demonstrating continuation indent
-    for (let i = 0; i < 5; i++) {
-      process.stdout.write(`${i} `); // Demonstrate space in concatenation
+    let result: number = 1;
+    for (let i = 2; i <= n; i++) { // (4)!
+      result *= i;
     }
-    console.log(); // New line after loop
-
-    // Try-catch-finally block
-    try {
-      throw new Error('Demo exception');
-    } catch (e) {
-      console.log(`Caught exception: ${e.message}`);
-    } finally {
-      console.log('Finally block executed');
-    }
-  }
-
-  // Inner class
-  private class
-  Inner {
-  public display(): void {
-    console.log('Inside Inner class');
+    return result;
   }
 }
-}
-
-// Executing the example
-const example = new Example(3, 7);
-example.performOperations();
 ```
 
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
-///
+
+[//]: # (@formatter:on)
 
 ## Naming Conventions
 

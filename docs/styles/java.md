@@ -4,8 +4,9 @@ This guide outlines best practices for writing clean, consistent, and understand
 focusing on readability, maintainability, and idiomatic usage.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for the purpose, scope, and general principles guiding our coding practices.
+/// admonition | 
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Java.
 ///
 [//]: # (@formatter:on)
 

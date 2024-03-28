@@ -4,8 +4,9 @@ This guide is dedicated to writing clean, Pythonic code that adheres to best pra
 the nuances of Python development. It underscores idiomatic usage, performance, and maintainability.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for the purpose, scope, and general principles of our coding standards.
+/// admonition | 
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Python.
 ///
 [//]: # (@formatter:on)
 

@@ -4,8 +4,9 @@ This guide offers comprehensive insights into writing idiomatic, clean, and main
 aligning with Dart's conventions and best practices.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for the overarching principles, purpose, and scope that guide our coding practices.
+/// admonition |
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Dart.
 ///
 [//]: # (@formatter:on)
 

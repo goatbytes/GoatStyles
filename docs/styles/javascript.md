@@ -5,8 +5,9 @@ maintainable JavaScript code. It emphasizes adherence to contemporary JavaScript
 practices while also incorporating unique aspects of JavaScript programming.
 
 [//]: # (@formatter:off)
-/// admonition | Please refer to our [Foundational Code Standards][fnd] for overarching principles, purpose, and scope that guide our coding practices.
+/// admonition | 
     type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for JavaScript.
 ///
 [//]: # (@formatter:on)
 
