@@ -1,62 +1,62 @@
 [
   {
     "title": "C++",
-    "url": "styles/cpp",
+    "url": "styles/cpp.md",
     "image": "assets/img/cplusplus.svg"
   },
   {
     "title": "C#",
-    "url":  "styles/csharp",
+    "url":  "styles/csharp.md",
     "image": "assets/img/csharp.svg"
   },
   {
     "title": "Dart",
-    "url":  "styles/dart",
+    "url":  "styles/dart.md",
     "image": "assets/img/dart.svg"
   },
   {
     "title": "Go",
-    "url":  "styles/go",
+    "url":  "styles/go.md",
     "image": "assets/img/go.svg"
   },
   {
     "title": "Java",
-    "url":  "styles/java",
+    "url":  "styles/java.md",
     "image": "assets/img/java.svg"
   },
   {
     "title": "JavaScript",
-    "url":  "styles/javascript",
+    "url":  "styles/javascript.md",
     "image": "assets/img/javascript.svg"
   },
   {
     "title": "Kotlin",
-    "url":  "styles/kotlin",
+    "url":  "styles/kotlin.md",
     "image": "assets/img/kotlin.svg"
   },
   {
     "title": "Objective-C",
-    "url":  "styles/objc",
+    "url":  "styles/objc.md",
     "image": "assets/img/objective-c.svg"
   },
   {
     "title": "Python",
-    "url":  "styles/python",
+    "url":  "styles/python.md",
     "image": "assets/img/python.svg"
   },
   {
     "title": "Rust",
-    "url":  "styles/rust",
+    "url":  "styles/rust.md",
     "image": "assets/img/rust.svg"
   },
   {
     "title": "Swift",
-    "url":  "styles/swift",
+    "url":  "styles/swift.md",
     "image": "assets/img/swift.svg"
   },
   {
     "title": "TypeScript",
-    "url":  "styles/typescript",
+    "url":  "styles/typescript.md",
     "image": "assets/img/typescript.svg"
   }
 ]
