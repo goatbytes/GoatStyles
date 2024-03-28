@@ -36,7 +36,7 @@ development environments, catering to the diverse needs of the software developm
 ### Repository Structure
 
 The GoatStyles style guides are meticulously documented in Markdown and located within the 
-[`docs/styles`](docs/lang) directory of the repository.
+[`docs/lang`](docs/lang) directory of the repository.
 
 ## How to Contribute
 
@@ -127,15 +127,15 @@ Python version by running `python --version` in your terminal.
 [TypeScript_Logo]: ./docs/assets/img/typescript.svg
 
 <!-- Page URLs -->
-[CPP]: https://goatbytes.github.io/GoatStyles/styles/cpp/
-[CSharp]: https://goatbytes.github.io/GoatStyles/styles/csharp/
-[Dart]: https://goatbytes.github.io/GoatStyles/styles/dart/
-[Go]: https://goatbytes.github.io/GoatStyles/styles/go/
-[Java]: https://goatbytes.github.io/GoatStyles/styles/java/
-[JavaScript]: https://goatbytes.github.io/GoatStyles/styles/javascript/
-[Kotlin]: https://goatbytes.github.io/GoatStyles/styles/kotlin/
-[Objective-C]: https://goatbytes.github.io/GoatStyles/styles/objc/
-[Python]: https://goatbytes.github.io/GoatStyles/styles/python/
-[Rust]: https://goatbytes.github.io/GoatStyles/styles/rust/
-[Swift]: https://goatbytes.github.io/GoatStyles/styles/swift/
-[TypeScript]: https://goatbytes.github.io/GoatStyles/styles/typescript/
+[CPP]: https://styles.goatbytes.io/lang/cpp/
+[CSharp]: https://styles.goatbytes.io/lang/csharp/
+[Dart]: https://styles.goatbytes.io/lang/dart/
+[Go]: https://styles.goatbytes.io/lang/go/
+[Java]: https://styles.goatbytes.io/lang/java/
+[JavaScript]: https://styles.goatbytes.io/lang/javascript/
+[Kotlin]: https://styles.goatbytes.io/lang/kotlin/
+[Objective-C]: https://styles.goatbytes.io/lang/objc/
+[Python]: https://styles.goatbytes.io/lang/python/
+[Rust]: https://styles.goatbytes.io/lang/rust/
+[Swift]: https://styles.goatbytes.io/lang/swift/
+[TypeScript]: https://styles.goatbytes.io/lang/typescript/
