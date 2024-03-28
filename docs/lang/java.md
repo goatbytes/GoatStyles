@@ -6,13 +6,13 @@ focusing on readability, maintainability, and idiomatic usage.
 [//]: # (@formatter:off)
 /// admonition | 
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Java.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for Java.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-The formatting guidelines for Kotlin adhere to our [Foundational Code Standards][fnd-formatting].
+The formatting guidelines for Kotlin adhere to our [Foundational Code Standards][FORMATTING].
 Here is a brief overview:
 
 - **Consistent Indentation:** Use 2 spaces for indentation, 4 spaces for continuation lines.
@@ -32,12 +32,12 @@ focus.
 
 ## Naming Conventions
 
-The naming conventions for Kotlin adhere to our [Foundational Code Standards][fnd-naming]
+The naming conventions for Kotlin adhere to our [Foundational Code Standards][NAMING]
 with no exceptions.
 
 - **PascalCase** for classes, interfaces, enums (definitions).
 - **camelCase** for functions, variables, properties.
-    - Prefix booleans with "is" or "has" for clarity.
+    - Prefix booleans with `is` or `has` for clarity.
 - **UPPER_SNAKE_CASE** for constants.
 - **lowercase** package names, concatenated words (avoid underscores).
 
@@ -288,10 +288,10 @@ public class GoatFeeder {
 
 [//]: # (links @formatter:off)
 
-[fnd]: foundation.md
-[fnd-formatting]: foundation.md#formatting
-[fnd-naming]: foundation.md#naming-conventions
-[fnd-docs]: foundation.md#documentation-and-comments
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments
 [Oracle Java Tutorials]: https://docs.oracle.com/javase/tutorial/
 [Effective Java]: https://www.pearson.com/us/higher-education/program/Bloch-Effective-Java-3rd-Edition/PGM334830.html
 

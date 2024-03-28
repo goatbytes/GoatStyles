@@ -6,19 +6,20 @@ aligning with Dart's conventions and best practices.
 [//]: # (@formatter:off)
 /// admonition |
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Dart.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for Dart.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-Dart formatting is automated with `dartfmt`, ensuring consistent code style across all Dart
-projects:
+The formatting rules for Dart adhere to our foundational [formatting standards][FORMATTING]:
 
-- **Indentation:** Use 2 spaces for indentation.
-- **Line Length:** While the default line length for Dart is 80 characters, we recommend adjusting
-  this to 100 characters for better readability.
-- **Braces:** Opening braces are placed on the same line as the statement.
+- **Consistent Indentation:** Use 2 spaces for indentation, 4 spaces for continuation lines.
+- **Line Length:** Aim for 100 characters, but allow flexibility for readability.
+- **Whitespace:** Use spaces around operators, parentheses, braces, colons, commas, and keywords.
+- **Brace Style:** Follow K&R style (opening brace on same line, closing brace on new line).
+- **Blank Lines:** Use 1 line to separate code sections.
+- **Alignment:** Align elements in documentation comments and parameter lists.
 
 ## Naming Conventions
 
@@ -27,9 +28,55 @@ Dart employs specific naming conventions to enhance readability and maintain con
 - **PascalCase** for classes, enum types, and type parameters.
 - **snake_case** for libraries, packages, directories, and source files.
 - **camelCase** for functions, variables, properties.
-    - Prefix booleans with "is" or "has" for clarity.
+    - Prefix booleans with `is` or `has` for clarity.
 - **camelCase** for functions, variables, constants, and parameters.
     - Prefix global constants with a lowercase `k` before `CamelCase`.
+
+---
+
+**Example**
+
+
+```dart
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 2 spaces for indentation (Dart standard).
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
+class WellFormattedCode { // (1)!
+  /**
+   * This method calculates the factorial of a given positive integer.
+   *
+   * @param n The non-negative integer for which to calculate the factorial.
+   * @return The factorial of n, or throws an ArgumentError if n is negative.
+   * @throws ArgumentError If the provided number (n) is negative.
+   */
+  int calculateFactorial(int n) { // (2)!
+    if (n < 0) { // (3)!
+      throw ArgumentError('Factorial is not defined for negative numbers.');
+    }
+
+    int result = 1;
+    for (int i = 2; i <= n; i++) { // (4)!
+      result *= i;
+    }
+    return result;
+  }
+}
+```
+
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
+---
 
 ## Commenting and Documentation
 
@@ -60,11 +107,11 @@ insights into the code's purpose and usage.
     ///
     /// Stores information about the goat's name and feeding status.
     class Goat {
-    /// The name of the goat.
-    final String name;
+      /// The name of the goat.
+      final String name;
     
-    /// Creates a [Goat] with the given [name].
-    Goat(this.name);
+      /// Creates a [Goat] with the given [name].
+      Goat(this.name);
     }
     ```
 
@@ -77,7 +124,7 @@ insights into the code's purpose and usage.
     ///
     /// Returns `true` if the goat was fed successfully.
     bool feedGoat(Goat goat, String food) {
-    // Implementation
+      // Implementation
     }
     ```
 
@@ -451,10 +498,10 @@ and potential problems.
 
 [//]: # (links @formatter:off)
 
-[fnd]: foundation.md
-[fnd-formatting]: foundation.md#formatting
-[fnd-naming]: foundation.md#naming-conventions
-[fnd-docs]: foundation.md#documentation-and-comments
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments
 [Effective Dart]: https://dart.dev/guides/language/effective-dart
 [Dart Language Tour]: https://dart.dev/guides/language/language-tour
 [Dart Linter]: https://dart.dev/tools/linter-rules

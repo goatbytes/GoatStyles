@@ -6,13 +6,13 @@ code that is not only efficient and safe but also clean, readable, and consisten
 [//]: # (@formatter:off)
 /// admonition | 
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Rust.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for Rust.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-The formatting rules for Rust adhere to our [Foundational Code Standards][fnd-formatting] with the
+The formatting rules for Rust adhere to our [Foundational Formatting Standards][FORMATTING] with the
 following exceptions:
 
 - **Indentation:** Use 4 spaces per indentation level.
@@ -351,10 +351,10 @@ focus.
 
 [//]: # (links @formatter:off)
 
-[fnd]: foundation.md
-[fnd-formatting]: foundation.md#formatting
-[fnd-naming]: foundation.md#naming-conventions
-[fnd-docs]: foundation.md#documentation-and-comments
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments
 [Rust Book]: https://doc.rust-lang.org/book/
 [Rust API Guidelines]: https://rust-lang.github.io/api-guidelines/
 [Rust by Example]: https://doc.rust-lang.org/rust-by-example/

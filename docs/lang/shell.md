@@ -7,13 +7,13 @@ scripts written in Bash or other shell languages.
 [//]: # (@formatter:off)
 /// admonition | 
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Shell.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for Shell.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-Follow the [Foundational Code Standards][fnd-formatting] with these shell-specific guidelines:
+Follow the [Foundational Formatting Standards][FORMATTING] with these shell-specific guidelines:
 
 - **Indentation:** Use 2 spaces for indentation.
 - **Line Length:** Aim for 80 characters, with a hard limit of 100 characters per line.
@@ -284,3 +284,8 @@ productivity.
 * [The Linux Documentation Project: Advanced Bash Scripting Guide](https://tldp.org/LDP/abs/html/)
 * [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line)
 * [A guide to learn bash](https://github.com/Idnan/bash-guide)
+
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments

@@ -6,12 +6,11 @@ maintainability, and adherence to modern Swift idioms.
 [//]: # (@formatter:off)
 /// admonition | 
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Swift.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for Swift.
 ///
 [//]: # (@formatter:on)
 
-The formatting guidelines for Swift adhere to our [Foundational Code Standards][fnd-formatting].
-Here is a brief overview:
+The formatting rules for Swift adhere to our foundational [formatting standards][FORMATTING]:
 
 - **Consistent Indentation:** Use 2 spaces for indentation, 4 spaces for continuation lines.
 - **Line Length:** Aim for 100 characters, but allow flexibility for readability.
@@ -30,12 +29,12 @@ focus.
 
 ## Naming Conventions
 
-The naming conventions for Swift adhere to our [Foundational Code Standards][fnd-naming]
-with the following exceptions:
+The naming conventions for Swift adhere to our foundational [naming conventions][NAMING] with the
+following exception:
 
 - **camelCase** for constants to follow Swift's convention.
 
-Otherwise, follow the conventions outlined in the foundational standards, briefly summarized below:
+Otherwise, follow the conventions outlined in the foundational standards.
 
 - **PascalCase** for classes, structs, enums, and protocols.
 - **camelCase** for functions, variables, constants, and enum cases.
@@ -293,10 +292,10 @@ variables have valid values before proceeding.
 
 [//]: # (links @formatter:off)
 
-[fnd]: foundation.md
-[fnd-formatting]: foundation.md#formatting
-[fnd-naming]: foundation.md#naming-conventions
-[fnd-docs]: foundation.md#documentation-and-comments
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments
 [Swift Programming Guide]: https://docs.swift.org/swift-book/
 [Swift API Design Guidelines]: https://swift.org/documentation/api-design-guidelines/
 [Ray Wenderlich Guide]: https://www.raywenderlich.com/1997706-swift-style-guide-for-raywenderlich-com

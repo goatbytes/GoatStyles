@@ -103,7 +103,7 @@ conventions.
 ### Whitespace
 
 - Include a space before parentheses and the left brace `{` for control structures
-- (`if`, `for`, `while`, etc.).
+  (`if`, `for`, `while`, etc.).
 - Include Space around all operators (`->`, `=`, `+`, `*`, `/`, `>>`, etc.), except before unary and
   range operators.
 - Include a space before `else`, `catch`, and `finally` keywords.
@@ -153,8 +153,7 @@ Use blank lines strategically to separate logical blocks of code for better read
  * - Consistent spacing for parameter lists and constructor arguments.
  * - Doc comments with aligned descriptions.
  */
-
-class WellFormattedCode { // (1)!
+class WellFormattedCode/*(1)!*/ {
 public:
     /**
      * This method calculates the factorial of a given positive integer.
