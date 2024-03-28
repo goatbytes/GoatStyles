@@ -1,4 +1,4 @@
-site_name: "Code Style Guides"
+site_name: "GoatStyles"
 site_description: "The official code style guides used by GoatBytes.IO."
 site_url: https://styles.goatbytes.io
 repo_url: https://github.com/goatbytes/GoatStyles
@@ -9,21 +9,21 @@ edit_uri: "blob/develop/docs/"
 
 nav:
   - Home: index.md
-  - Foundational Code Standards: styles/foundation.md
-  - Style Guides:
-      - C++: styles/cpp.md
-      - C#: styles/csharp.md
-      - Dart: styles/dart.md
-      - Go: styles/go.md
-      - Objective-C: styles/objc.md
-      - Java: styles/java.md
-      - JavaScript: styles/javascript.md
-      - Kotlin: styles/kotlin.md
-      - Python: styles/python.md
-      - Rust: styles/rust.md
-      - Shell: styles/shell.md
-      - Swift: styles/swift.md
-      - TypeScript: styles/typescript.md
+  - Foundational Code Standards: foundation.md
+  - Languages:
+      - C++: lang/cpp.md
+      - C#: lang/csharp.md
+      - Dart: lang/dart.md
+      - Go: lang/go.md
+      - Objective-C: lang/objective-c.md
+      - Java: lang/java.md
+      - JavaScript: lang/javascript.md
+      - Kotlin: lang/kotlin.md
+      - Python: lang/python.md
+      - Rust: lang/rust.md
+      - Shell: lang/shell.md
+      - Swift: lang/swift.md
+      - TypeScript: lang/typescript.md
   - Contribute: contributing.md
   - About:
       - GoatBytes.IO: about.md
@@ -40,7 +40,7 @@ theme:
     - navigation.top
     - search.suggest
     - search.highlight
-    - toc.integrate
+#    - toc.integrate
     - content.code.annotate
   palette:
     - scheme: default # Palette toggle for light mode
@@ -104,6 +104,7 @@ extra_javascript:
   - 'assets/js/app.js'
 
 extra:
+  homepage: https://goatbytes.io
   social:
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/goatbytes
