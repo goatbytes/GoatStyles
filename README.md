@@ -1,4 +1,4 @@
-# GoatStyles by GoatBytes.IO`() {`
+# [GoatStyles][GS] by [GoatBytes.IO][GB]`() {`
 
 ## Introduction
 
@@ -102,13 +102,14 @@ Python version by running `python --version` in your terminal.
 
 ## License
 
-[GoatStyles][GoatStylesRepo] © 2024 by [GoatBytes.IO][GoatBytes.IO] is licensed under [Attribution-ShareAlike 4.0 International][LicenseUrl]
+[GoatStyles][GH] is licensed under [Attribution-ShareAlike 4.0 International][LICENSE]
 
 # `};`
 
-[GoatBytes.IO]: https://goatbytes.io
-[GoatStylesRepo]: https://github.com/goatbytes/GoatStyles
-[LicenseUrl]: https://creativecommons.org/licenses/by-sa/4.0/
+[GS]: https://styles.goatbytes.io
+[GB]: https://goatbytes.io
+[GH]: https://github.com/goatbytes/GoatStyles
+[LICENSE]: https://creativecommons.org/licenses/by-sa/4.0/
 [CLA]: https://forms.gle/J5iqyH4hrHQQDfUCA
 
 <!-- Logo URLs -->
