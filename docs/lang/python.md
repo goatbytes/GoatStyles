@@ -6,14 +6,14 @@ the nuances of Python development. It underscores idiomatic usage, performance, 
 [//]: # (@formatter:off)
 /// admonition | 
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Python.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for Python.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-While Python's PEP 8 provides comprehensive formatting guidelines,
-our [Foundational Code Standards][fnd-formatting] also apply. Key Python-specific considerations
+While Python's PEP 8 provides comprehensive formatting guidelines, our foundational 
+[formatting standards][FORMATTING] also apply. Key Python-specific considerations
 include:
 
 - **Indentation:** Use 4 spaces per indentation level.
@@ -124,3 +124,8 @@ def goat_names():
 - [Pylint](https://github.com/pylint-dev/pylint): A source code analyzer that checks for errors in Python code.
 
 [//]: # (@formatter:off)
+
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments

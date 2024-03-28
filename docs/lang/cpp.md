@@ -6,20 +6,19 @@ C++-specific considerations.
 [//]: # (@formatter:off)
 /// admonition |
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for C++.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for C++.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-While our C++ formatting guidelines follows the [Foundational Code Standards][fnd-formatting] for
-formatting, summarized below:
+The formatting rules for C++ adhere to our foundational [formatting standards][FORMATTING] with the
+following exceptions:
 
 - **Indentation:** Use 4 spaces for indentation.
 - **Continuation indent:** Use 8 spaces for line continuations.
 
-Otherwise, adhere to the general formatting guidelines outlined in the foundational standards and
-briefly summarized below.
+Otherwise, follow the conventions outlined in the foundational standards, summarized below:
 
 - **Line Length:** Aim for 100 characters, but allow flexibility for readability.
 - **Whitespace:** Use spaces around operators, parentheses, braces, colons, commas, and keywords for
@@ -34,99 +33,70 @@ briefly summarized below.
 Remember, these are guidelines; adapt them for your project's needs while keeping readability in focus.
 ///
 
-/// details | Formatted C++ Example Code
-    type: example
-```cpp
-#include <iostream>
-#include <vector>
-
-// Attributes used for demonstration
-[[nodiscard]] class Example {
-public:
-    // Constructor with initializer list
-    Example(int x, int y) : x_(x), y_(y) {}
-
-    // Method declaration
-    void doSomething();
-
-private:
-    int x_;
-    int y_;
-
-    // Inner class
-    class Inner {
-    public:
-        void innerMethod() {
-            std::cout << "Inside innerMethod" << std::endl;
-        }
-    };
-
-    // Example of a static method
-    static void staticMethod() {
-        if (true) {
-          std::cout << "Static method called" << std::endl;
-        }
-    }
-};
-
-void Example::doSomething() {
-    Inner inner;
-    inner.innerMethod();
-
-    int sum = x_ + y_; // Demonstrating space around operator
-    std::cout << "Sum: " << sum << std::endl;
-
-    // For loop demonstrating continuation indent and spaces
-    for (int i = 0; i < 10; i += 2) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-
-    // If-else structure
-    if (sum > 10) {
-        std::cout << "Sum is greater than 10" << std::endl;
-    } else {
-        std::cout << "Sum is 10 or less" << std::endl;
-    }
-
-    // Try-catch block
-    try {
-        throw std::runtime_error("Example exception");
-    } catch (const std::runtime_error& e) {
-        std::cout << "Caught an exception: " << e.what() << std::endl;
-    }
-}
-
-int main() {
-    Example example(5, 8);
-    example.doSomething();
-    Example::staticMethod();
-
-    return 0;
-}
-```
-
-///
-
-[//]: # (@formatter:on)
-
 ## Naming Conventions
 
-The naming conventions for Kotlin adhere to our [Foundational Code Standards][fnd-naming]
+The naming conventions for Kotlin adhere to our foundational [naming conventions][NAMING]
 with no exceptions.
 
 - **PascalCase** for classes, interfaces, enums (definitions).
 - **camelCase** for functions, variables, properties.
-    - Prefix booleans with "is" or "has" for clarity.
+    - Prefix booleans with `is` or `has` for clarity.
 - **UPPER_SNAKE_CASE** for constants.
 - **lowercase** package names, concatenated words (avoid underscores).
 
-[//]: # (TODO: Add good/bad examples for naming conventions)
+---
+
+**Example**
+
+```cpp
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 4 spaces for indentation (C++ exception).
+ * - 8 spaces for continuation lines (C++ exception).
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
+class WellFormattedCode/*(1)!*/ {
+public:
+    /**
+     * This method calculates the factorial of a given positive integer.
+     *
+     * @param n The non-negative integer for which to calculate the factorial.
+     * @return  The factorial of n, or throws an std::invalid_argument exception if n is negative.
+     * @throws std::invalid_argument If the provided number (n) is negative.
+     */
+    static long calculateFactorial/*(2)!*/(int n) {
+        if (n < 0) {// (3)!
+            throw std::invalid_argument("Factorial is not defined for negative numbers.");
+        }
+
+        long result = 1;
+        for (int i = 2; i <=/*(4)!*/ n; ++i) {
+            result *= i;
+        }
+        return result;
+    }
+};
+```
+
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
+[//]: # (@formatter:on)
+
+---
 
 ## Documentation and Comments
 
-Refer to the [Foundational Code Standards][fnd-docs] for general commenting and documentation
-guidelines.
+Refer to the [Foundational Documentation and Comments Standards][DOCS] for general commenting and 
+documentation guidelines.
 
 ### Documentation Example
 
@@ -144,7 +114,7 @@ guidelines.
  * **Usage Example:**
  * `
  * Goat billy("Billy", 5);
- * std::cout << (billy.isHappy(3) ? "True" : "False") << std::endl; // Outputs "True" or "False" based on the number of meals.
+ * std::cout << (billy.isHappy(3) ? "True" : "False") << std::endl;
  * `
  * 
  * @author Author's Name
@@ -181,12 +151,6 @@ private:
     int age_;
 };
 
-int main() {
-    Goat billy("Billy", 5);
-    std::cout << "Billy is " << (billy.isHappy(3) ? "happy" : "not happy") << std::endl;
-
-    return 0;
-}
 ```
 
 ## Idioms and Best Practices
@@ -258,9 +222,9 @@ resources:
   aspects of C++ programming, from basics to advanced topics.
 
 [//]: # (@formatter:off)
-[fnd]: foundation.md
-[fnd-formatting]: foundation.md#formatting
-[fnd-naming]: foundation.md#naming-conventions
-[fnd-docs]: foundation.md#documentation-and-comments
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments
 [Effective Modern C++]: https://www.oreilly.com/library/view/effective-modern-c/9781491908419/
 [//]: # (@formatter:on)

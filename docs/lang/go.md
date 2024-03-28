@@ -6,13 +6,13 @@ that is clean, readable, maintainable, and idiomatic to the Go programming langu
 [//]: # (@formatter:off)
 /// admonition |
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Go.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for Go.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-While our [Foundational Formatting Standards][fnd-formatting] provide comprehensive formatting
+While our foundational [formatting standards][FORMATTING] provide comprehensive formatting
 guidelines, you should also use `gofmt` to ensure consistency across all Go code.
 
 - **Indentation:** `gofmt` uses tabs for indentation. **Do not use spaces.**
@@ -23,8 +23,15 @@ guidelines, you should also use `gofmt` to ensure consistency across all Go code
 
 ## Naming Conventions
 
-In addition to following our [Foundational Naming Conventions][fnd-naming], adhere to Go's naming
-conventions:
+Adhere to the foundational [naming conventions][NAMING]:
+
+- **PascalCase** for classes, protocols, and enumeration types
+- **camelCase** for methods, variables, and properties.
+  - Prefix booleans with `is` or `has` for clarity.
+- **UPPER_SNAKE_CASE** for constants.
+- **lowercase** package names, concatenated words (avoid underscores).
+
+In addition, adhere to Go's naming convention recommendations:
 
 - **Local Variables:** Short, but descriptive names. Single letter names are common for small scopes
 - **Acronyms:** Keep acronyms in uppercase. For example, use `HTTPRequest` instead of `HttpRequest`.
@@ -251,10 +258,10 @@ func main() {
 
 [//]: # (links @formatter:off)
 
-[fnd]: foundation.md
-[fnd-formatting]: foundation.md#formatting
-[fnd-naming]: foundation.md#naming-conventions
-[fnd-docs]: foundation.md#documentation-and-comments
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments
 [gofmt]: https://pkg.go.dev/cmd/gofmt
 [Staticcheck]: https://staticcheck.io/
 [Effective Go]: https://golang.org/doc/effective_go.html

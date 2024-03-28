@@ -6,14 +6,13 @@ Kotlin-specific considerations.
 [//]: # (@formatter:off)
 /// admonition |
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Kotlin.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for Kotlin.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-The formatting guidelines for Kotlin adhere to our [Foundational Code Standards][fnd-formatting].
-Here is a brief overview:
+Adhere to the foundational [formatting stadards][FORMATTING]:
 
 - **Consistent Indentation:** Use 2 spaces for indentation, 4 spaces for continuation lines.
 - **Line Length:** Aim for 100 characters, but allow flexibility for readability.
@@ -34,71 +33,57 @@ Here is a brief overview:
     type: example
 
 ```kotlin
-import kotlin.Exception
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - 2 spaces for indentation.
+ * - 4 spaces for continuation lines.
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style.
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
+class WellFormattedCode { // (1)!
 
-// Annotation used for demonstration
-annotation class DemoAnnotation(val description: String)
-
-@DemoAnnotation(description = "Class demonstrating style rules")
-class Example(private val x: Int, private val y: Int) {
-
-  // Method demonstrating various style rules
-  fun performOperations() {
-    val inner = Inner()
-    inner.display()
-
-    val sum = x + y // Space around operators
-    println("Sum: $sum")
-
-    // Kotlin uses 'if' as its ternary operator
-    val message = if (sum > 10) "Greater than 10" else "Not greater than 10"
-    println(message)
-
-    // If-else with spacing and brace style
-    if (sum % 2 == 0) {
-      println("Sum is even")
-    } else {
-      println("Sum is odd")
+  /**
+   * This method calculates the factorial of a given positive integer. // Doc comment for method
+   *
+   * @param n The non-negative integer for which to calculate the factorial.
+   * @return  The factorial of n, or throws an IllegalArgumentException if n is negative.
+   * @throws IllegalArgumentException If the provided number (n) is negative.
+   */
+  fun calculateFactorial(n: Int): Long { // (2)!
+    if (n < 0) { // (3)!
+      throw IllegalArgumentException("Factorial is not defined for negative numbers.")
     }
 
-    // For loop demonstrating continuation indent
-    for (i in 0..4) {
-      print("$i ")
+    var result = 1L
+    for (i in 2..n) {  // (4)!
+      result *= i
     }
-
-    try {
-      throw Exception("Demo exception")
-    } catch (e: Exception) {
-      println("Caught exception: ${e.message}")
-    } finally {
-      println("Finally block executed")
-    }
+    return result
   }
-
-  // Inner class
-  inner class Inner {
-    fun display() {
-      println("Inside Inner class")
-    }
-  }
-}
-
-fun main() {
-  val example = Example(3, 7)
-  example.performOperations()
 }
 ```
+
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
 ///
 [//]: # (@formatter:on)
 
 ## Naming Conventions
 
-The naming conventions for Kotlin adhere to our [Foundational Code Standards][fnd-naming]
+The naming conventions for Kotlin adhere to our foundational [naming conventions][NAMING]
 with no exceptions.
 
 - **PascalCase** for classes, interfaces, enums (definitions).
 - **camelCase** for functions, variables, properties.
-    - Prefix booleans with "is" or "has" for clarity.
+    - Prefix booleans with `is` or `has` for clarity.
 - **UPPER_SNAKE_CASE** for constants.
 - **lowercase** package names, concatenated words (avoid underscores).
 
@@ -164,7 +149,7 @@ fun PrintGoatInfo(goat: goat) {
 
 ## Documentation and Comments
 
-Refer to the [Foundational Code Standards][fnd-docs] for general commenting and documentation
+Refer to the [Foundational Code Standards][DOCS] for general commenting and documentation
 guidelines.
 
 #### Documentation Example
@@ -413,10 +398,10 @@ remains clean and consistent with Kotlin best practices.
 
 [//]: # (links @formatter:off) 
 
-[fnd]: foundation.md
-[fnd-formatting]: foundation.md#formatting
-[fnd-naming]: foundation.md#naming-conventions
-[fnd-docs]: foundation.md#documentation-and-comments
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments
 [KDoc]: https://kotlinlang.org/docs/kotlin-doc.html
 [Dokka]: https://kotlinlang.org/docs/dokka-introduction.html
 [Detekt]: https://deteky.dev

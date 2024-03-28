@@ -36,7 +36,7 @@ development environments, catering to the diverse needs of the software developm
 ### Repository Structure
 
 The GoatStyles style guides are meticulously documented in Markdown and located within the 
-[`docs/styles`](docs/styles) directory of the repository.
+[`docs/styles`](docs/lang) directory of the repository.
 
 ## How to Contribute
 

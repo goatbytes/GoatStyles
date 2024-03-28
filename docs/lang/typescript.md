@@ -6,14 +6,13 @@ and TypeScript-specific considerations.
 [//]: # (@formatter:off)
 /// admonition | 
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for TypeScript.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for TypeScript.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-The formatting guidelines for TypeScript closely adhere to
-our [Foundational Code Standards][fnd-formatting]. Here is a brief overview:
+The formatting rules for TypeScript adhere to our foundational [formatting standards][FORMATTING]:
 
 - **Consistent Indentation:** Use 2 spaces for indentation.
 - **Line Length:** Aim for 100 characters, but allow flexibility for readability.
@@ -30,7 +29,16 @@ Remember, these are guidelines; adapt them for your project's needs while keepin
 
 ## Naming Conventions
 
-Adhere to our [Foundational Code Standards][fnd-naming] with the following TypeScript-specific clarifications:
+The naming conventions for TypeScript adhere to our foundational [naming conventions][NAMING]
+with no exceptions.
+
+- **PascalCase** for classes, interfaces, enums (definitions).
+- **camelCase** for functions, variables, properties.
+    - Prefix booleans with `is` or `has` for clarity.
+- **UPPER_SNAKE_CASE** for constants.
+- **lowercase** package names, concatenated words (avoid underscores).
+
+**Additional Tips:**
 
 - **Interfaces:** Use PascalCase without an `I` prefix.
 - **Types:** Use PascalCase for type aliases and enum types.
@@ -38,7 +46,7 @@ Adhere to our [Foundational Code Standards][fnd-naming] with the following TypeS
 
 ## Documentation and Comments
 
-Refer to the [Foundational Code Standards][fnd-docs] for general commenting and documentation
+Refer to the [Foundational Code Standards][DOCS] for general commenting and documentation
 guidelines. In TypeScript, use [TSDoc][TSDoc] for documenting code. Document all public APIs clearly
 with examples where applicable.
 
@@ -179,9 +187,9 @@ To further enhance your TypeScript development skills and knowledge, consider ex
 
 [//]: # (links @formatter:off)
 
-[fnd]: foundation.md
-[fnd-formatting]: foundation.md#formatting
-[fnd-naming]: foundation.md#naming-conventions
-[fnd-docs]: foundation.md#documentation-and-comments
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments
 [TSDoc]: https://tsdoc.org/
 [//]: # (links @formatter:on)

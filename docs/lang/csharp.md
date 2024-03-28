@@ -6,19 +6,17 @@ C#-specific considerations.
 [//]: # (@formatter:off)
 /// admonition |
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for C#.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for C#.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-The formatting guidelines for C# closely adhere to
-our [Foundational Code Standards][fnd-formatting]. Here is a brief overview:
+The formatting rules for C# adhere to our foundational [formatting standards][FORMATTING]:
 
 - **Consistent Indentation:** Use 2 spaces for indentation, 4 spaces for continuation lines.
 - **Line Length:** Aim for 100 characters, but allow flexibility for readability.
-- **Whitespace:** Use spaces around operators, parentheses, braces, colons, commas, and keywords for
-  clarity.
+- **Whitespace:** Use spaces around operators, parentheses, braces, colons, commas, and keywords.
 - **Brace Style:** Follow K&R style (opening brace on same line, closing brace on new line).
 - **Blank Lines:** Use 1 line to separate code sections.
 - **Alignment:** Align elements in documentation comments and parameter lists.
@@ -28,96 +26,68 @@ our [Foundational Code Standards][fnd-formatting]. Here is a brief overview:
     type: info
 Remember, these are guidelines; adapt them for your project's needs while keeping readability in focus.
 ///
-
-/// details | Formatted C# Example Code
-    type: example
-```csharp
-using System;
-
-// Attribute used for demonstration
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-public class DemoAttribute : Attribute {}
-
-[Demo]
-public class Example {
-  private int x;
-  private int y;
-
-  // Constructor
-  public Example(int x, int y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  // Method demonstrating various style rules
-  public void PerformOperations() {
-    Inner inner = new Inner();
-    inner.Display();
-
-    int sum = x + y; // Space around operators
-    Console.WriteLine($"Sum: {sum}");
-
-    // Ternary operator with spaces
-    string message = sum > 10 ? "Greater than 10" : "Not greater than 10";
-    Console.WriteLine(message);
-
-    // If-else with spacing and brace style
-    if (sum % 2 == 0) {
-      Console.WriteLine("Sum is even");
-    } else {
-      Console.WriteLine("Sum is odd");
-    }
-
-    // For loop demonstrating continuation indent
-    for (int i = 0; i < 5; i++) {
-      Console.Write(i + " "); // Demonstrate space in concatenation
-    }
-    Console.WriteLine();
-
-    // Try-catch-finally block
-    try {
-      throw new InvalidOperationException("Demo exception");
-    } catch (InvalidOperationException ex) {
-      Console.WriteLine($"Caught exception: {ex.Message}");
-    } finally {
-      Console.WriteLine("Finally block executed");
-    }
-  }
-
-  // Inner class
-  private class Inner {
-    public void Display() {
-      Console.WriteLine("Inside Inner class");
-    }
-  }
-}
-
-class Program {
-  static void Main(string[] args) {
-    Example example = new Example(3, 7);
-    example.PerformOperations();
-  }
-}
-```
-///
 [//]: # (@formatter:on)
 
 ## Naming Conventions
 
-The naming conventions for C# adhere to our [Foundational Code Standards][fnd-naming] with no
-exceptions.
+The naming conventions for C# adhere to our foundational [naming conventions][NAMING]:
 
 - **PascalCase** for classes, interfaces, enums (definitions).
 - **camelCase** for functions, variables, properties.
-    - Prefix booleans with "is" or "has" for clarity.
+    - Prefix booleans with `is` or `has` for clarity.
 - **UPPER_SNAKE_CASE** for constants.
 - **lowercase** for namespaces, concatenated words (avoid underscores).
 
-[//]: # (TODO: Add good/bad examples for naming conventions)
+---
+
+**Example**
+
+```csharp
+/**
+ * This class demonstrates proper code formatting following the specified style guide.
+ *
+ * **Formatting Rules:**
+ * - Indentation: 2 spaces (C# standard).
+ * - Max line length of 100 characters.
+ * - Spaces around operators, control structures, and keywords.
+ * - K&R brace style (opening brace on the same line as the statement).
+ * - Consistent spacing for parameter lists and constructor arguments.
+ * - Doc comments with aligned descriptions.
+ */
+public class WellFormattedCode { // (1)!
+  /**
+   * This method calculates the factorial of a given positive integer.
+   *
+   * @param n The non-negative integer for which to calculate the factorial.
+   * @return  The factorial of n, or throws an ArgumentOutOfRangeException if n is negative.
+   * @throws ArgumentOutOfRangeException If the provided number (n) is negative.
+   */
+  public static long CalculateFactorial(int n) { // (2)!
+    if (n < 0) { // (3)!
+      throw new ArgumentOutOfRangeException(nameof(n), "Factorial is not defined for negative numbers.");
+    }
+
+    long result = 1;
+    for (int i = 2; i <= n; i++) { // (4)!
+      result *= i;
+    }
+    return result;
+  }
+}
+```
+
+1.    Class name in PascalCase with a doc comment.
+2.    Method name in camelCase with a doc comment.
+3.    K&R brace style for blocks.
+4.    Proper spacing around operators and control structures.
+
+[//]: # (@formatter:on)
+
+---
 
 ## Documentation and Comments
 
-Refer to the [Foundational Code Standards][fnd-docs] for general commenting and documentation
+Refer to the [Foundational Code Standards][DOCS] for general commenting and documentation
 guidelines.
 
 ## Idioms and Best Practices
@@ -229,9 +199,9 @@ several tools are particularly effective:
   articles, tutorials, and forums on C# programming and .NET development.
 
 [//]: # (@formatter:off)
-[fnd]: foundation.md
-[fnd-formatting]: foundation.md#formatting
-[fnd-naming]: foundation.md#naming-conventions
-[fnd-docs]: foundation.md#documentation-and-comments
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
+[DOCS]: ../foundation.md#documentation-and-comments
 [Roslyn]: https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview
 [//]: # (@formatter:on)

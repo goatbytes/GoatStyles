@@ -6,14 +6,13 @@ the community standards and best practices for Objective-C development.
 [//]: # (@formatter:off)
 /// admonition | 
     type: abstract
-[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for Objective-C.
+[Foundational Code Standards][FOUNDATION]{:target="_blank"} provide the foundation, this guide extends them for Objective-C.
 ///
 [//]: # (@formatter:on)
 
 ## Formatting
 
-The formatting guidelines for C++ adhere to our [Foundational Code Standards][fnd-formatting].
-Here is a brief overview:
+The formatting rules for Objective-C adhere to our foundational [formatting standards][FORMATTING]:
 
 - **Consistent Indentation:** Use 2 spaces for indentation, 4 spaces for continuation lines.
 - **Line Length:** Aim for 100 characters, but allow flexibility for readability.
@@ -32,12 +31,11 @@ focus.
 
 ## Naming Conventions
 
-The naming conventions for Objective-C adhere to our [Foundational Code Standards][fnd-naming]
-_with no exceptions._
+The naming conventions for Objective-C adhere to our foundational [naming conventions][NAMING]:
 
 - **PascalCase** for classes, protocols, and enumeration types
 - **camelCase** for methods, variables, and properties.
-    - Prefix booleans with "is" or "has" for clarity.
+    - Prefix booleans with `is` or `has` for clarity.
 - **UPPER_SNAKE_CASE** for constants.
 - **lowercase** package names, concatenated words (avoid underscores).
 
@@ -415,9 +413,9 @@ documentation.
 
 [//]: # (links @formatter:off)
 
-[fnd]: foundation.md
-[fnd-formatting]: foundation.md#formatting
-[fnd-naming]: foundation.md#naming-conventions
+[FOUNDATION]: ../foundation.md
+[FORMATTING]: ../foundation.md#formatting
+[NAMING]: ../foundation.md#naming-conventions
 [ObjC Guide]: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html
 [Apple Coding Guidelines]: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html
 
