@@ -1,356 +1,237 @@
 # C# Style Guide
 
-## Introduction
+This guide specifically addresses C# development, focusing on idiomatic practices, patterns, and
+C#-specific considerations.
 
-This document serves as a comprehensive style guide for writing clean, consistent, and maintainable C# code. It outlines best practices, procedures, and guidelines to promote code readability, maintainability, and adherence to established coding conventions. Following this style guide fosters a collaborative development environment where developers can write code that is easy to understand, modify, and extend.
-
-This guide is structured to provide clear and actionable guidance for C# developers. Each section focuses on a specific aspect of code style, offering recommendations and examples. By following these guidelines, you can contribute to a high-quality C# codebase and enhance the overall maintainability and professionalism of your projects.
-
-## General Principles
-
-This section establishes the core principles that underpin magood C# code style. These principles serve as a foundation for writing clean, consistent, and maintainable code.
-
-- **Readability:** Strive for code that is easy for humans to understand. Favor clear and concise naming conventions, well-structured code blocks, and meaningful comments to enhance code comprehension.
-
-- **Consistency:** Maintain consistent formatting, naming conventions, and coding practices throughout the codebase. Consistency promotes code readability and reduces the mental overhead required for developers to navigate the codebase.
-
-- **Efficiency:** Write efficient code that utilizes language features and algorithms effectively to optimize performance without compromising readability or maintainability.
-
-- **Maintainability:** Write code that is easy to understand, modify, and extend. Effective commenting, proper organization, and adherence to best practices all contribute to maintainable code.
-
-- **Modularity:** Structure code into well-defined modules (classes, functions) that promote reusability, encapsulation, and loose coupling between code components.
-
-- **Testability:** Write code that is easily testable. Consider factors like unit testability and separation of concerns while designing and implementing code.
+[//]: # (@formatter:off)
+/// admonition |
+    type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for C#.
+///
+[//]: # (@formatter:on)
 
 ## Formatting
 
-Proper formatting is essential for maintaining readability and consistency across the C# codebase. This section provides guidelines on indentation, line length, whitespace, and the use of blank lines, all aimed at enhancing the clarity and professionalism of the code.
+The formatting guidelines for C# closely adhere to
+our [Foundational Code Standards][fnd-formatting]. Here is a brief overview:
 
-### Indentation
+- **Consistent Indentation:** Use 2 spaces for indentation, 4 spaces for continuation lines.
+- **Line Length:** Aim for 100 characters, but allow flexibility for readability.
+- **Whitespace:** Use spaces around operators, parentheses, braces, colons, commas, and keywords for
+  clarity.
+- **Brace Style:** Follow K&R style (opening brace on same line, closing brace on new line).
+- **Blank Lines:** Use 1 line to separate code sections.
+- **Alignment:** Align elements in documentation comments and parameter lists.
 
-- Use four spaces for indentation. Avoid using tabs as they can be interpreted differently on various systems.
+[//]: # (@formatter:off)
+/// admonition |
+    type: info
+Remember, these are guidelines; adapt them for your project's needs while keeping readability in focus.
+///
 
-- Indent the body of a code block (e.g., following an if statement, inside a loop, or within a method definition) one level (four spaces) from the opening statement.
-
-- Maintain consistent indentation throughout the codebase for improved readability.
-
-### Line Length
-
-- Aim for a maximum line length of 100 characters. This improves readability, especially when viewing code on screens with limited width.
-
-- Break longer lines by wrapping code within parentheses, brackets, or braces onto a new line, aligning it appropriately with the previous line.
-
-- Use judgment and consider the context when dealing with long lines of code. Complex expressions might benefit from staying on one line for better comprehension, while long variable declarations might be better split for readability.
-
-### Whitespace
-
-- Include a space before opening parentheses `(`, except in method declarations or calls.
-
-- Surround operators (e.g., `=`, `+`, `-`) with spaces, except for unary operators and the method reference double colon `::`.
-
-- Include a space before the left brace `{` in class declarations, method declarations, and control flow statements (e.g., `if`, `for`, `while`).
-
-- Include a space before keywords like `if`, `for`, `while`.
-
-- Use spaces around the components `?` and `:` of the ternary operator.
-
-- Include a space after commas in lists (e.g., method arguments, array initializers).
-
-- Include a space after semicolons `;` in a `for` loop.
-
-- Include a space after a type cast.
-
-- Include a space before the colon in a `foreach` loop.
-
-### Blank Lines
-
-- Strategically placed blank lines can significantly enhance the readability of your code.
-
-- Include one blank line between methods or fields within a class.
-
-- Use one blank line to separate sections like the header and package statement, after package statements, before and after imports, around class/interface declarations, and around initializer blocks.
-
-**Example:**
-
+/// details | Formatted C# Example Code
+    type: example
 ```csharp
-public class GoatFeeder
-{
-    public void FeedGoats(List<Goat> goats)
-    {
-        for (Goat goat in goats)
-        {
-            goat.Feed(
-                new GoatFood("Grass", 5),
-                new GoatFood("Hay", 3));
-        }
+using System;
+
+// Attribute used for demonstration
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+public class DemoAttribute : Attribute {}
+
+[Demo]
+public class Example {
+  private int x;
+  private int y;
+
+  // Constructor
+  public Example(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  // Method demonstrating various style rules
+  public void PerformOperations() {
+    Inner inner = new Inner();
+    inner.Display();
+
+    int sum = x + y; // Space around operators
+    Console.WriteLine($"Sum: {sum}");
+
+    // Ternary operator with spaces
+    string message = sum > 10 ? "Greater than 10" : "Not greater than 10";
+    Console.WriteLine(message);
+
+    // If-else with spacing and brace style
+    if (sum % 2 == 0) {
+      Console.WriteLine("Sum is even");
+    } else {
+      Console.WriteLine("Sum is odd");
     }
+
+    // For loop demonstrating continuation indent
+    for (int i = 0; i < 5; i++) {
+      Console.Write(i + " "); // Demonstrate space in concatenation
+    }
+    Console.WriteLine();
+
+    // Try-catch-finally block
+    try {
+      throw new InvalidOperationException("Demo exception");
+    } catch (InvalidOperationException ex) {
+      Console.WriteLine($"Caught exception: {ex.Message}");
+    } finally {
+      Console.WriteLine("Finally block executed");
+    }
+  }
+
+  // Inner class
+  private class Inner {
+    public void Display() {
+      Console.WriteLine("Inside Inner class");
+    }
+  }
+}
+
+class Program {
+  static void Main(string[] args) {
+    Example example = new Example(3, 7);
+    example.PerformOperations();
+  }
 }
 ```
+///
+[//]: # (@formatter:on)
 
 ## Naming Conventions
 
-Consistent naming conventions enhance code readability and maintainability by making it easier for developers to understand the structure and purpose of the code at a glance. Here are the recommended naming conventions for C#, incorporating best practices from the provided resources:
+The naming conventions for C# adhere to our [Foundational Code Standards][fnd-naming] with no
+exceptions.
 
-### Classes and Interfaces
+- **PascalCase** for classes, interfaces, enums (definitions).
+- **camelCase** for functions, variables, properties.
+    - Prefix booleans with "is" or "has" for clarity.
+- **UPPER_SNAKE_CASE** for constants.
+- **lowercase** for namespaces, concatenated words (avoid underscores).
 
-- Use PascalCase (uppercase first letter for each word) for class and interface names.
+[//]: # (TODO: Add good/bad examples for naming conventions)
 
-- Names should be nouns or noun phrases that reflect the class's or interface's purpose.
+## Documentation and Comments
 
-**Examples:**
+Refer to the [Foundational Code Standards][fnd-docs] for general commenting and documentation
+guidelines.
 
-```csharp
-public class GoatFeeder { }
+## Idioms and Best Practices
 
-public interface IFeedable { }
-```
+C# offers a wealth of idiomatic practices and patterns that can make your code more concise,
+readable, and idiomatic. This section focuses on leveraging C#'s unique features effectively.
 
-### Methods
+### Properties and Auto-Properties
 
-- Use PascalCase for method names.
-
-- Names should be verbs or verb phrases that describe the action the method performs.
-
-**Examples:**
-
-```csharp
-public void FeedGoats(List<Goat> goats) { }
-
-public int CalculateGoatHappiness(Goat goat) { }
-```
-
-### Variables and Fields
-
-- Use camelCase (lowercase first letter, with uppercase for subsequent words) for local variables, instance fields, and static fields.
-
-- Names should be descriptive and clearly convey the variable's purpose or value.
-
-**Examples:**
+Use properties and auto-properties to encapsulate fields and provide a clear, consistent interface
+to class and struct members.
 
 ```csharp
-private int goatCount;
-private static readonly int MAX_GOATS_ALLOWED = 100;
+public class Goat {
+    public string Name { get; set; }
+    public int Age { get; private set; }
 
-public string goatName { get; set; }
-```
-
-### Constants
-
-- Use all uppercase letters with underscores separating words for constant names.
-
-**Examples:**
-
-```csharp
-public const double PI = 3.14159;
-
-public enum GoatMood { HAPPY, SAD, HUNGRY }
-```
-
-### Namespaces
-
-- Use all lowercase letters with periods separating words (similar to domain names) for namespace names.
-
-**Examples:**
-
-```csharp
-using System.Collections.Generic;
-
-namespace com.goatfarm.feeding
-{
-}
-```
-
-### Enums
-
-- Use PascalCase for enum types, aligning with class and interface naming conventions.
-
-- Use all uppercase letters with underscores separating words for enum constants.
-
-**Example:**
-
-```csharp
-public enum GoatMood { HAPPY, SAD, HUNGRY }
-```
-
-**Additional Considerations:**
-
-- Avoid abbreviations or acronyms unless they are widely understood (e.g., `XML`, `HTTP`).
-
-- Favor clarity over brevity when choosing names.
-
-- Use prefixes or suffixes consistently for specific types of classes or interfaces (e.g., `I` prefix for interfaces, `Manager` suffix for manager classes).
-
-## Commenting and Documentation
-
-Effective commenting and comprehensive documentation are crucial for maintaining code quality, facilitating future modifications, and ensuring codebase accessibility for new and existing developers. Here's a breakdown of best practices for C# comments and documentation, drawing insights from the provided resources:
-
-### Code Comments
-
-- **Clarity and Purpose:** Comments should explain the "why" behind the code, not just the "what" it does. Avoid redundant comments that simply repeat the code itself.
-
-- **Maintainability:** As code evolves, keep comments up-to-date to reflect the current functionality. Outdated comments can be more misleading than no comments at all.
-
-**Example:**
-
-```csharp
-// Adjusts goat happiness level based on feeding time; longer feeding times make happier goats.
-goat.AdjustHappiness(feedingTimeMinutes * HAPPINESS_FACTOR);
-
-// This method validates user input to prevent feeding goats harmful substances.
-public bool ValidateFoodType(string foodType) {
-    // ... validation logic ...
-}
-```
-
-### Documentation Comments
-
-- **Document Classes and Interfaces:** Provide a summary at the beginning of each class and interface, describing its purpose and role within the application.
-
-- **Document Methods:** Document every method, including a description of its behavior, parameters, return values, and any exceptions thrown.
-
-- **Use Standard Tags:** Utilize XMLDoc standard tags (`<summary>`, `<param>`, `<returns>`, `<exception>`) to clearly describe method signatures. Additionally, use inline tags like `<code>` for code references and `<see cref="..."/>` for linking to related classes or methods within the documentation.
-
-**Example:**
-
-```csharp
-/// <summary>
-/// Represents a goat in the farm simulation.
-/// <para>
-/// This class provides methods to manage the goat's state, including its hunger and happiness levels.
-/// </para>
-/// </summary>
-public class Goat
-{
-
-    /// <summary>
-    /// Feeds the goat, adjusting its hunger level.
-    /// </summary>
-    /// <param name="foodType">The type of food being fed to the goat.</param>
-    /// <param name="quantity">The amount of food in kilograms.</param>
-    /// <returns>The goat's happiness level after feeding.</returns>
-    /// <exception cref="OverfeedingException">Thrown if the quantity of food exceeds the goat's dietary restrictions.</exception>
-    public int Feed(string foodType, double quantity) throws OverfeedingException {
-        // ... method implementation ...
+    public Goat(string name, int age) {
+        Name = name;
+        Age = age;
     }
 }
 ```
 
-### Inline Comments
+### LINQ for Data Manipulation
 
-- **Use Sparingly:** Reserve inline comments for complex code segments where the logic's purpose or action isn't immediately clear from the code itself.
-
-- **Placement:** Position inline comments on the line above the code segment they describe, not at the end of the line of code.
-
-**Example:**
+Utilize Language Integrated Query (LINQ) for querying and manipulating collections in a declarative
+manner.
 
 ```csharp
-// Calculate the optimal feeding time based on the goat's current activity level
-int feedingTime = CalculateFeedingTime(goat.ActivityLevel);
+var adultGoats = goats.Where(goat => goat.Age >= 2).ToList();
 ```
 
-### Public API Documentation
+### Async/Await for Asynchronous Programming
 
-- **Comprehensive Coverage:** Document every public class, method, and member variable comprehensively. Provide clear insights into the component's purpose, use, and behavior. Strive for detailed and accurate documentation, especially for critical software components. Consider security, reliability, and transparency principles in your documentation practices.
-
-### TODOs and FIXMEs
-
-- **Issue Tracking Preferred:** While TODO: and FIXME: comments can highlight areas needing attention, utilizing a ticket-based tracking system (e.g., Jira, Azure Boards) is generally preferred for managing tasks and issues. This approach facilitates better prioritization, tracking, and resolution of tasks.
-
-- **Include Ticket Numbers:** If using TODO: or FIXME: comments, always include the corresponding ticket number from your project's tracking system. This practice links code comments directly to detailed descriptions, discussions, and updates on the issue or task, ensuring actionable and trackable comments.
-
-**Example:**
+Employ async/await for managing asynchronous operations, improving responsiveness and scalability of
+your applications.
 
 ```csharp
-// TODO: [TICKET-1234] Implement happiness adjustment based on weather conditions
-// FIXME: [TICKET-5678] Investigate edge cases where feeding time exceeds 24 hours
+public async Task FeedAllGoatsAsync(IEnumerable<Goat> goats) {
+    foreach (var goat in goats) {
+        await goat.FeedAsync();
+    }
+}
 ```
 
-## Programming Practices
+### Expression-bodied Members
 
-This section outlines best practices for writing clean, efficient, and maintainable C# code.
+Use expression-bodied members for single-line methods and properties.
 
-### Error Handling
+```csharp
+public class Goat {
+    public string Name { get; }
+    public int Age { get; }
 
-- **Embrace Exception Handling:** Utilize exceptions to manage errors and unexpected situations gracefully. Aim for specific exception types to provide meaningful error messages for improved troubleshooting and debugging.
+    public Goat(string name, int age) => (Name, Age) = (name, age);
 
-- **Catch and Handle Exceptions:** Don't ignore exceptions within a `try...catch` block. Handle the exception appropriately, either by logging the error, providing informative feedback to the user, or recovering from the error if possible. Avoid using a catch-all (`catch (Exception ex)`) unless necessary for critical error handling to prevent the application from crashing unexpectedly.
+    public void MakeSound() => Console.WriteLine($"{Name} says 'Meeeh'");
+}
+```
 
-- **Favor Specific Over General Exceptions:** Catching specific exception types allows for more targeted handling of different error scenarios. General exceptions like `System.Exception` should be used cautiously.
+### Null-coalescing and Null-conditional Operators
 
-### Control Flow Statements
+Leverage null-coalescing (`??`) and null-conditional (`?.`) operators to simplify null checks and
+default value assignment.
 
-- **Use Clear and Concise Conditions:** Strive for well-defined conditions in `if`, `else if`, and `while` statements. Complex conditions can be broken down into smaller, more readable expressions.
+```csharp
+public string GetGoatName(Goat goat) => goat?.Name ?? "Unknown";
+```
 
-- **Favor** `switch` Statements for Multi-Way Branching: When dealing with multiple branching scenarios based on a single value, consider using a `switch` statement for improved readability compared to a series of nested `if` statements.
+### Pattern Matching
 
-- **Limit Nesting Depth:** Deeply nested control flow statements can make code hard to understand. Extract complex logic into separate methods or utilize techniques like the 'guard clause' pattern to simplify nested conditions.
+Use pattern matching to simplify type checks and conditional logic.
 
-### Class Organization
+```csharp
+public void FeedAnimal(object animal) {
+    if (animal is Goat goat) {
+        Console.WriteLine($"Feeding {goat.Name}");
+    }
+}
+```
 
-- **Single Responsibility Principle:** Each class should have a single, well-defined responsibility. This promotes modularity, reusability, and easier testing.
+## Tools and Resources
 
-- **Proper Encapsulation:** Utilize public properties and methods to control access to a class's internal state, while encapsulating implementation details within private methods and fields. This fosters data protection and promotes loose coupling between classes.
+Ensuring a consistent development environment and utilizing static analysis tools are crucial steps
+for maintaining high code quality in C# projects.
 
-- **Favor Composition Over Inheritance:** When possible, favor composition (has-a relationship) over inheritance (is-a relationship) for code reusability. Composition allows for more flexible object creation and avoids the complexities of deeply nested inheritance hierarchies.
+### Recommended Static Analysis Tools for C#
 
-### Modifiers
+Static analysis tools help identify potential issues early in the development process. For C#,
+several tools are particularly effective:
 
-- Use `public` Sparingly: Reserve the `public` access modifier for members (methods, fields) that need to be accessed from other classes. Consider using `private` or `protected` for members that should only be used within the class or its derived classes, respectively.
+- [**Roslyn Analyzers**][Roslyn]: A set of analyzers that use the .NET Compiler Platform ("Roslyn")
+  to offer comprehensive code analysis for C#.
+- [**StyleCop**](https://github.com/StyleCop/StyleCop): A static code analysis tool that checks C#
+  code for conformance to StyleCop's coding standards.
+- [**SonarLint for Visual Studio**](https://www.sonarlint.org/visualstudio/): Extends SonarLint's
+  capabilities to C#, offering code smells detection, bugs tracking, and code quality metrics.
 
-- Use `readonly` for Immutable Data: Declare variables and properties as `readonly` whenever possible to indicate that their value cannot be changed after initialization. This enhances thread safety and code clarity.
+### Additional Resources
 
-- Use `static` for Class-Level Members: Utilize the `static` modifier for fields and methods that belong to the class itself, rather than to instances of the class.
+- [**.NET Documentation**](https://docs.microsoft.com/en-us/dotnet/csharp/): The official .NET
+  documentation, providing comprehensive information on C# language features, .NET libraries, and
+  best practices.
+- [**C# Programming Guide**](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/):
+  Offers detailed guidance on C# programming concepts, language features, and application
+  development techniques.
+- [**C# Corner**](https://www.c-sharpcorner.com/): A community and educational site offering
+  articles, tutorials, and forums on C# programming and .NET development.
 
-## Language-Specific Idioms and Patterns
-
-This section explores common C# language idioms and patterns that enhance code readability, efficiency, and adherence to best practices.
-
-### Collections
-
-- **Use** `foreach` for Iteration: Utilize the `foreach` loop for iterating over elements within a collection. It offers a concise and readable way to process each element without explicit index management.
-
-- **Leverage Linq for Queries:** Consider using Language Integrated Query (LINQ) for performing complex queries on collections. LINQ provides a powerful and expressive syntax for filtering, sorting, and transforming data within collections.
-
-### Interfaces
-
-- **Favor Interfaces for Contracts:** Define interfaces to specify the behavior expected of a class. This promotes loose coupling and allows for polymorphism, where different classes can implement the same interface.
-
-- **Dependency Injection:** Implement dependency injection principles by injecting dependencies (required objects) through constructors or methods, rather than creating them directly within the class. This enhances testability and promotes looser coupling.
-
-### Error Handling
-
-- Use `try...finally` for Resource Management: Employ the `try...finally` block to ensure that critical resources (e.g., database connections, file streams) are properly disposed of, even if exceptions occur. The `finally` block guarantees execution of cleanup code, regardless of whether an exception is thrown within the `try` block.
-
-### Magic Numbers
-
-- **Define Constants:** Avoid using "magic numbers" (literal values scattered throughout the code) by defining meaningful constants. This improves code readability, maintainability, and allows for easier modification of these values in a centralized location.
-
-## Tools and IDE Setup
-
-This section provides recommendations for tooling and IDE configuration to promote code quality, maintainability, and adherence to the style guide.
-
-### IDE Configuration
-
-- **Static Code Analysis:** Integrate static code analysis tools like StyleCop, ReSharper, or SonarLint into your IDE. These tools can automatically identify and report style violations, potential bugs, and code smells, promoting code quality and adherence to best practices.
-
-- **Code Formatting:** Configure your IDE to automatically format code according to the style guide's formatting conventions (discussed in Section 3). This ensures consistency and readability throughout the codebase.
-
-**Popular IDEs and their Configuration Options:**
-
-- **Visual Studio:** Utilize extensions like ReSharper or EditorConfig to enforce style rules and formatting preferences.
-
-- **Visual Studio Code:** Install and configure ESLint with a C# extension like CSharp formatter to enforce coding standards.
-
-- **JetBrains Rider:** Leverage built-in code inspections and style customization options to adhere to the style guide.
-
-**Additional Tips:**
-
-- **Code Snippets:** Create code snippets for frequently used patterns or boilerplate code to expedite development and ensure consistency.
-
-- **Version Control Integration:** Use a version control system like Git for code versioning, collaboration, and tracking changes aligned with the style guide.
-
-### Testing Tools
-
-- **Unit Testing:** Employ a unit testing framework like NUnit, xUnit, or MSTest to write unit tests for your code. Unit tests ensure the correctness of individual units (classes, methods) and promote code maintainability and refactoring confidence.
-
-- **Integration Testing:** Utilize integration testing tools to verify how different parts of your application interact with each other. This helps to identify issues related to integration between components.
+[//]: # (@formatter:off)
+[fnd]: foundation.md
+[fnd-formatting]: foundation.md#formatting
+[fnd-naming]: foundation.md#naming-conventions
+[fnd-docs]: foundation.md#documentation-and-comments
+[Roslyn]: https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview
+[//]: # (@formatter:on)

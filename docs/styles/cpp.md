@@ -1,419 +1,266 @@
 # C++ Style Guide
 
-## Introduction
+This guide specifically addresses C++ development, focusing on idiomatic practices, patterns, and
+C++-specific considerations.
 
-This document outlines the C++ style guide for all development projects within GoatBytes.IO. Adherence to this guide promotes consistent, maintainable, and high-quality C++ code across our teams.
-
-The guide details best practices for formatting, naming conventions, comments and documentation, programming practices, language-specific idioms and patterns, and tools and IDE setup. Following these guidelines ensures code readability, efficiency, and reduces the potential for errors.
-
-This style guide is intended for all developers working on C++ projects within the company, regardless of their prior C++ experience. We encourage developers to familiarize themselves with the contents of this document and integrate these practices into their development workflow.
-
-## General Principles
-
-This section outlines the overarching principles that guide our C++ coding practices within the company. Adhering to these principles promotes well-structured, maintainable, and efficient C++ code:
-
-- **Readability and Maintainability:** Strive for clarity and conciseness in your code. Utilize meaningful variable and function names, proper indentation, and clear comments to enhance understanding for both yourself and others.
-
-- **Modularity:** Organize your code effectively using well-defined classes, functions, and modules. This promotes reusability and simplifies maintenance by compartmentalizing functionalities.
-
-- **Error Handling:** Anticipate potential errors and exceptions that might occur during program execution. Implement robust error handling mechanisms like `try-catch` blocks or error codes to gracefully handle errors and prevent unexpected program crashes.
-
-- **Resource Management:** Manage resources like files, network connections, and memory efficiently. Open and close resources properly within their scope to avoid resource leaks and potential program crashes. Consider using RAII (Resource Acquisition Is Initialization) principles for streamlined resource management.
-
-- **Testing:** Write unit tests to verify the functionality of individual classes and functions. This helps ensure your code behaves as expected and catches potential bugs early in the development process. Consider adopting a C++ testing framework like Google Test (gtest) or Catch2 to facilitate efficient testing.
-
-Following these general principles establishes a solid foundation for crafting high-quality C++ code within your development projects.
+[//]: # (@formatter:off)
+/// admonition |
+    type: abstract
+[Foundational Code Standards][fnd]{:target="_blank"} provide the foundation, this guide extends them for C++.
+///
+[//]: # (@formatter:on)
 
 ## Formatting
 
-Formatting plays a crucial role in code readability and maintainability. Consistent formatting makes your C++ code easier to understand for yourself and others, improving collaboration and reducing errors.
+While our C++ formatting guidelines follows the [Foundational Code Standards][fnd-formatting] for
+formatting, summarized below:
 
-### Indentation
+- **Indentation:** Use 4 spaces for indentation.
+- **Continuation indent:** Use 8 spaces for line continuations.
 
-- Use four-space indentation consistently throughout your code. This standard indentation level improves readability and visually represents code blocks.
+Otherwise, adhere to the general formatting guidelines outlined in the foundational standards and
+briefly summarized below.
 
-**Example:**
+- **Line Length:** Aim for 100 characters, but allow flexibility for readability.
+- **Whitespace:** Use spaces around operators, parentheses, braces, colons, commas, and keywords for
+  clarity.
+- **Brace Style:** Follow K&R style (opening brace on same line, closing brace on new line).
+- **Blank Lines:** Use 1 line to separate code sections.
+- **Alignment:** Align elements in documentation comments and parameter lists.
 
+[//]: # (@formatter:off)
+/// admonition |
+    type: info
+Remember, these are guidelines; adapt them for your project's needs while keeping readability in focus.
+///
+
+/// details | Formatted C++ Example Code
+    type: example
 ```cpp
-class Goat {
+#include <iostream>
+#include <vector>
+
+// Attributes used for demonstration
+[[nodiscard]] class Example {
 public:
-  Goat(const std::string& name, int age);
-  void eat(const Food& food);
-  std::string get_name() const;
-  int get_age() const;
+    // Constructor with initializer list
+    Example(int x, int y) : x_(x), y_(y) {}
+
+    // Method declaration
+    void doSomething();
 
 private:
-  std::string name_;
-  int age_;
+    int x_;
+    int y_;
+
+    // Inner class
+    class Inner {
+    public:
+        void innerMethod() {
+            std::cout << "Inside innerMethod" << std::endl;
+        }
+    };
+
+    // Example of a static method
+    static void staticMethod() {
+        if (true) {
+          std::cout << "Static method called" << std::endl;
+        }
+    }
 };
-```
 
-### Line Length
+void Example::doSomething() {
+    Inner inner;
+    inner.innerMethod();
 
-- Maintain a reasonable line length, ideally around 80 characters with a maximum line-length of 100 characters. This helps prevent horizontal scrolling and improves code readability on most screen sizes.
+    int sum = x_ + y_; // Demonstrating space around operator
+    std::cout << "Sum: " << sum << std::endl;
 
-**Example:**
+    // For loop demonstrating continuation indent and spaces
+    for (int i = 0; i < 10; i += 2) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 
-```cpp
-// **Bad (exceeds line length):**
-std::string veryLongVariableNameThatWouldDefinitelyCauseHorizontalScrolling
-    = getIncrediblyLongGoatNameFromExternalLibrary(someVeryLongInputString);
+    // If-else structure
+    if (sum > 10) {
+        std::cout << "Sum is greater than 10" << std::endl;
+    } else {
+        std::cout << "Sum is 10 or less" << std::endl;
+    }
 
-// **Good (wrapped to multiple lines):**
-std::string very_long_variable_name_that_would_definitely_cause_horizontal_scrolling =
-    getIncrediblyLongGoatNameFromExternalLibrary(someVeryLongInputString);
-```
+    // Try-catch block
+    try {
+        throw std::runtime_error("Example exception");
+    } catch (const std::runtime_error& e) {
+        std::cout << "Caught an exception: " << e.what() << std::endl;
+    }
+}
 
-### Spacing
+int main() {
+    Example example(5, 8);
+    example.doSomething();
+    Example::staticMethod();
 
-- Use spaces around operators (except for `->` and `::`), after commas, and before parentheses to enhance readability.
-
-**Example:**
-
-```cpp
-Goat billy("Billy", 2);
-int happiness = billy.get_happiness();
-if (happiness < 50) {
-  std::cout << "Billy the goat is looking a bit hangry!" << std::endl;
+    return 0;
 }
 ```
 
-### Blank Lines
+///
 
-- Strategically use blank lines to separate logical code blocks, function definitions, and class definitions. This improves code organization and visual clarity.
-
-**Example:**
-
-```cpp
-void Goat::eat(const Food& food) {
-  happiness_ += food.get_nutrition();
-  // ... (other logic related to eating)
-}
-
-std::string Goat::get_name() const {
-  return name_;
-}
-```
+[//]: # (@formatter:on)
 
 ## Naming Conventions
 
-### Variable and Function Naming
+The naming conventions for Kotlin adhere to our [Foundational Code Standards][fnd-naming]
+with no exceptions.
 
-- Use lowercase letters with underscores (`_`) to separate words in variable and function names (snake_case).
+- **PascalCase** for classes, interfaces, enums (definitions).
+- **camelCase** for functions, variables, properties.
+    - Prefix booleans with "is" or "has" for clarity.
+- **UPPER_SNAKE_CASE** for constants.
+- **lowercase** package names, concatenated words (avoid underscores).
 
-**Example:**
+[//]: # (TODO: Add good/bad examples for naming conventions)
 
-```cpp
-void Goat::eat(const Food& food) {
-  happiness_ += food.get_nutrition();
-  // ... (other logic related to eating)
-}
+## Documentation and Comments
 
-std::string Goat::get_name() const {
-  return name_;
-}
-```
+Refer to the [Foundational Code Standards][fnd-docs] for general commenting and documentation
+guidelines.
 
-- Consider using prefixes or suffixes to indicate specific data types or purposes (e.g., `is_happy`, `num_goats`).
-
-**Example:**
+### Documentation Example
 
 ```cpp
-bool is_goat_healthy(const Goat& goat); int get_num_goats_in_herd();
-```
+#include <stdexcept>
+#include <string>
+#include <iostream>
 
-### Class and Struct Naming
-
-- Use PascalCase (uppercase first letter for each word) for class and struct names.
-
-**Example:**
-
-```cpp
-class GoatManager; struct FoodType;
-```
-
-### Constants
-
-- Use uppercase letters with underscores to separate words in constant names.
-
-**Example:**
-
-```cpp
-static const int MAX_HERD_SIZE = 100; static const double HAY_NUTRITION_VALUE = 50.0;
-```
-
-### Hungarian Notation (Optional)
-
-- Hungarian Notation (using prefixes to indicate variable type) is an optional approach. While not widely used in modern C++, it can be helpful in some specific contexts.
-
-**Example:**
-
-```cpp
-int iAge; // Integer variable for age std::string strName; // String variable for name
-```
-
-### Naming Consistency
-
-- Maintain consistency in your naming conventions throughout your codebase. This promotes a clean and unified style, making the code easier to understand and navigate.
-
-## Comments and Documentation
-
-### Comprehensive Documentation
-
-- **Header Files:** Include header files (`.h` files) for all public classes, functions, and structs. These headers should provide a high-level overview of the functionality offered and any collaborators (other header files) required.
-
-**Example:**
-
-```cpp
-void Goat::eat(const Food& food) {
-  happiness_ += food.get_nutrition();
-  // ... (other logic related to eating)
-}
-
-std::string Goat::get_name() const {
-  return name_;
-}
-```
-
-- **Class Documentation:** Provide detailed comments within class definitions using Doxygen comments or a similar format. This documentation should cover:
-
-    - A clear and concise class description explaining its purpose and role in the program.
-
-    - Member variable documentation, including data type, purpose, and usage guidelines (e.g., access restrictions, thread safety).
-
-    - Member function documentation, including purpose, parameters, return value, side effects, and any exceptions that might be thrown.
-
-**Example:**
-
-```cpp
 /**
- * @class Goat
- * @brief Represents a single goat within the herd management system.
-
- * This class encapsulates information and behavior related to a goat in the herd.
- * It provides methods for interacting with the goat, such as feeding and retrieving
- * information about its state.
+ * Represents a goat with a name and age, offering functionality to determine its happiness.
+ * 
+ * This class encapsulates essential attributes for a goat and provides a method to assess
+ * the goat's happiness based on the number of meals it has received within a day.
+ *
+ * **Usage Example:**
+ * `
+ * Goat billy("Billy", 5);
+ * std::cout << (billy.isHappy(3) ? "True" : "False") << std::endl; // Outputs "True" or "False" based on the number of meals.
+ * `
+ * 
+ * @author Author's Name
+ * @param name The name of the goat.
+ * @param age The age of the goat in years. Must be non-negative.
+ * @throws std::invalid_argument if the age is negative.
  */
 class Goat {
 public:
-  /**
-   * Constructor for the Goat class.
-   *
-   * @param name The name of the goat.
-   * @param age The age of the goat in years.
-   */
-  Goat(const std::string& name, int age);
+    Goat(const std::string& name, int age) : name_(name), age_(age) {
+        if (age < 0) {
+            throw std::invalid_argument("Age cannot be negative");
+        }
+    }
 
-  // ... (other member function declarations with Doxygen comments)
+    /**
+     * Determines if the goat is happy based on the number of meals it has received today.
+     * 
+     * A goat is considered happy if it has been fed at least twice a day.
+     * 
+     * @param meals The number of meals the goat has received today.
+     * @return true if the goat is happy (fed at least twice today), false otherwise.
+     * @throws std::invalid_argument if the number of meals is negative.
+     */
+    bool isHappy(int meals) const {
+        if (meals < 0) {
+            throw std::invalid_argument("Meals cannot be negative");
+        }
+        return meals >= 2;
+    }
 
 private:
-  // ... (member variable declarations with comments)
+    std::string name_;
+    int age_;
 };
-```
 
-- **Function Documentation:** For all public functions, provide clear Doxygen comments or equivalent documentation that includes:
+int main() {
+    Goat billy("Billy", 5);
+    std::cout << "Billy is " << (billy.isHappy(3) ? "happy" : "not happy") << std::endl;
 
-    - A concise description of the function's purpose.
-
-    - A list of parameters with data types and descriptions of their purpose and expected usage.
-
-    - The return value type and its meaning.
-
-    - Any side effects the function might have on program state (e.g., modifying global variables).
-
-    - A description of potential exceptions that might be thrown and how they should be handled.
-
-**Example:**
-
-```
-/**
- * Feeds a goat with a specific food type, updating its happiness level.
- *
- * This function attempts to feed the specified goat with the provided food. If the
- * goat eats the food, its happiness level will be increased.
- *
- * @param goat The goat to be fed.
- * @param food The type of food to feed the goat.
- *
- * @return true if the goat eats the food successfully, false otherwise (e.g., goat
- * is not hungry or dislikes the food).
- *
- * @throws std::runtime_error - If the goat object is invalid or in an unexpected state.
- */
-bool feed_goat(Goat& goat, const Food& food);
-```
-
-### Code Comments
-
-In addition to comprehensive class and function documentation, utilize code comments strategically to explain non-obvious logic, complex algorithms, or design choices within your code:
-
-- Use clear and concise comments to improve code readability, especially for sections that might be less intuitive.
-
-- Avoid excessive commenting on trivial code that can be easily understood by reading the code itself.
-
-- Maintain consistent formatting for code comments to enhance readability.
-
-## Programming Practices
-
-### Readability and Maintainability
-
-- **Focus on code clarity:** Strive to write code that is easy to understand for both yourself and others. Use meaningful variable and function names, proper indentation, and clear comments as discussed in previous sections.
-
-- **Organize code effectively:** Structure your code using well-defined classes, functions, and modules. This promotes modularity and reusability, making the code easier to maintain and modify.
-
-### Memory Management
-
-- **Understand ownership semantics:** In C++, you are responsible for managing the lifetime of memory objects. Utilize techniques like RAII (Resource Acquisition Is Initialization) and smart pointers (e.g., `std::unique_ptr`, `std::shared_ptr`) to ensure proper memory allocation and deallocation, preventing memory leaks and dangling pointers.
-
-**Example** (using `std::unique_ptr`):
-
-```cpp
-std::unique_ptr<Goat> billyGoat = std::make_unique<Goat>("Billy", 2);
-// ... (interact with billyGoat)
-// billyGoat will be automatically deallocated when it goes out of scope
-```
-
-### Error Handling
-
-- **Implement robust error handling:** Anticipate potential errors and exceptions that might occur during program execution. Utilize techniques like `try-catch` blocks or error codes to handle these errors gracefully, preventing unexpected program crashes and ensuring data integrity.
-
-**Example (Handling Missing Food Type):**
-
-```cpp
-FoodType get_favorite_food(const std::string& goat_name) {
-  // ... (logic to find favorite food)
-  if (favorite_food.empty()) {
-    throw std::runtime_error("Favorite food unknown for goat: " + goat_name);
-  }
-  return favorite_food;
+    return 0;
 }
 ```
 
-### Resource Management
+## Idioms and Best Practices
 
-- **Manage resources efficiently:** This includes managing files, network connections, and other system resources. Open and close resources properly within their scope to avoid resource leaks and potential program crashes. Consider using RAII principles for resource management as well.
+C++ offers a wealth of idiomatic practices and patterns that can enhance your code's efficiency,
+readability, and safety. This section focuses on leveraging C++'s unique features effectively.
 
-**Example:**
+### Smart Pointers
 
-```cpp
-std::ifstream goat_data_file("goats.dat");
-if (goat_data_file.is_open()) {
-  // ... (read goat data from the file)
-} else {
-  std::cerr << "Error opening goat data file!" << std::endl;
-}
-// goat_data_file will be automatically closed when it goes out of scope
-```
+Use smart pointers (std::unique_ptr, std::shared_ptr, std::weak_ptr) for dynamic memory management
+to avoid leaks.
 
-### Testing
+### RAII
 
-- **Write unit tests:** Create unit tests to verify the functionality of individual classes and functions. This helps ensure your code behaves as expected and catches potential bugs early in the development process. Consider using a C++ testing framework like Google Test (gtest) or Catch2 to streamline the testing process.
+Leverage Resource Acquisition Is Initialization (RAII) for managing resources like file handles and
+mutexes.
 
-**Example:**
+### Move Semantics
 
-```cpp
-TEST(GoatTest, GetHappiness) {
-  Goat billy("Billy", 2);
-  billy.eat(FoodType::Hay);
-  EXPECT_GT(billy.get_happiness(), 50);  // Assert happiness is greater than 50
-}
-```
+Utilize move semantics to avoid unnecessary copying of objects, especially for return values and
+function arguments.
 
-## Language-Specific Idioms and Patterns
+### constexpr
 
-### Smart Pointers and Memory Management
+Prefer constexpr for compile-time initialization of constants to improve performance.
 
-- Go beyond basic memory management practices and embrace smart pointers like `std::unique_ptr`, `std::shared_ptr`, and `std::weak_ptr`. These tools help automate memory deallocation and prevent memory leaks, especially when managing complex ownership scenarios within your goat herd (e.g., a Herd class containing multiple Goat objects).
+### Rule of Five
 
-**Example:**
+Follow the Rule of Five for classes that manage resources directly, ensuring proper copy and move
+semantics.
 
-```cpp
-std::shared_ptr<Goat> billyGoat = std::make_shared<Goat>("Billy", 2);
-std::shared_ptr<Goat> buttercupGoat = std::make_shared<Goat>("Buttercup", 1);
+### Templates
 
-std::shared_ptr<Herd> myHerd = std::make_shared<Herd>();
-myHerd->add_goat(billyGoat);
-myHerd->add_goat(buttercupGoat);
+Use templates for generic programming, allowing for code reuse across different data types.
 
-// Both billyGoat and buttercupGoat will be automatically deallocated
-// when the last shared_ptr pointing to them goes out of scope.
-```
+## Tools and Resources
 
-- Consider using RAII (Resource Acquisition Is Initialization) principles with smart pointers for even more robust memory management.
+### Recommended Static Analysis Tools for C++
 
-### Iterators and Algorithms
+For ensuring code quality and adherence to this style guide, we recommend integrating the following
+static analysis tools into your C++ development workflow:
 
-- Utilize C++'s powerful iterators and algorithms from the `<algorithm>` header to manipulate collections and data structures efficiently. Algorithms like `std::find`, `std::sort`, and `std::for_each` can simplify tasks like finding a specific goat in the herd or iterating over all goats to feed them.
+- [**Cppcheck**](http://cppcheck.sourceforge.net/): A static analysis tool for C/C++ code that
+  detects various types of errors, including memory leaks, misuses of the standard library, and
+  more.
+- [**Clang-Tidy**](https://clang.llvm.org/extra/clang-tidy/): Part of the LLVM project, this linter
+  tool provides a framework for writing checks that detect errors, bugs, and stylistic issues in C++
+  code.
+- [**Coverity**](https://scan.coverity.com/): Offers static code analysis to identify software
+  vulnerabilities and compliance issues.
+- [**CodeSonar**](https://www.grammatech.com/products/codesonar): A comprehensive tool for static
+  analysis, detecting bugs, security vulnerabilities, and compliance violations in C and C++
+  codebases.
 
-**Example:**
+### Additional Resources
 
-```cpp
-auto happiestGoat = std::max_element(herd.goats_.begin(), herd.goats_.end(),
-                                     [](const std::shared_ptr<Goat>& a, const std::shared_ptr<Goat>& b) {
-                                       return a->get_happiness() < b->get_happiness();
-                                     });
+To further enhance your C++ development skills and knowledge, consider exploring the following
+resources:
 
-if (happiestGoat != herd.goats_.end()) {
-  std::cout << (*happiestGoat)->get_name() << " is the happiest goat in the herd!" << std::endl;
-}
-```
+- [**C++ Core Guidelines**](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines): An
+  extensive set of guidelines maintained by the C++ community and the Standard C++ Foundation to
+  help C++ programmers achieve higher code quality.
+- [**Effective Modern C++**][Effective Modern C++]: A book by Scott Meyers that covers the effective
+  use of the C++11 and C++14 standards.
+- [**The C++ Programming Language**](http://www.stroustrup.com/4th.html): Written by Bjarne
+  Stroustrup, the creator of C++, this book provides comprehensive coverage of the C++ language,
+  including its standard library and key design techniques.
+- [**LearnCpp**](https://www.learncpp.com/): An online resource offering free tutorials on various
+  aspects of C++ programming, from basics to advanced topics.
 
-### Templates and Generic Programming
-
-- Leverage C++ templates to create generic functions and classes that can work with various data types.
-
-**Example:**
-
-```cpp
-template <typename FoodType>
-void feed(Goat& goat, const FoodType& food) {
-  goat.eat(food);
-}
-```
-
-### Exceptions and Error Handling
-
-- Utilize C++ exceptions for robust error handling. Throw exceptions to indicate exceptional circumstances and allow for handling them at appropriate points in your program. Ensure proper exception handling to prevent program crashes and maintain data integrity.
-
-**Example:**
-
-```cpp
-void feed_goat(Goat& goat, const FoodType& food) {
-  if (!goat.likes(food)) {
-    throw std::runtime_error("Goat " + goat.get_name() + " dislikes this food!");
-  }
-  goat.eat(food);
-}
-```
-
-## Tools and IDE Setup
-
-### Essential Tools
-
-- **Compiler:** A C++ compiler is needed to translate your C++ code into machine code executable by your computer. Here are two popular options:
-
-    - **[GNU Compiler Collection (GCC)](https://gcc.org/):** A free, open-source compiler suite widely used for C and C++ development.
-
-    - **[Clang](https://clang.llvm.org/get_started.html):** Another open-source compiler known for its speed, performance, and integration with various development tools.
-
-- **Build Tool:** A build tool automates the compilation process, managing dependencies and simplifying project building. Consider these options:
-
-    - **[CMake](https://cmake.org/):** A cross-platform build system used for various programming languages, including C++.
-
-    - **Make:** A traditional build tool often used in conjunction with GCC.
-
-### IDE Selection
-
-Choosing an IDE depends on your personal preferences and workflow style. Here are some popular options with C++ support:
-
-- **[Visual Studio (VS)](https://visualstudio.microsoft.com/):** A powerful, commercially-licensed IDE from Microsoft with comprehensive features for C++ development, including debugging, code completion, and project management.
-
-- **[Visual Studio Code (VS Code)](https://code.visualstudio.com/):** A free, open-source code editor from Microsoft that can be extended with plugins to provide C++ development capabilities. It's known for its customizability and lightweight nature.
-
-- **[CLion](https://www.jetbrains.com/clion/):** A cross-platform IDE from JetBrains specifically designed for C and C++ development. It offers advanced features like code analysis, refactoring, and integration with debuggers and version control systems.
-
-- **[Eclipse](https://eclipseide.org/) (with CDT Plugin):** A free, open-source IDE with a plugin (CDT - C/C++ Development Toolkit) enabling C++ development functionalities.
-
-### Additional Tools
-
-- **Debugger:** A debugger is a valuable tool for identifying and resolving issues within your code. Debuggers allow you to step through code execution line by line, inspect variables, and set breakpoints. GDB (GNU Debugger) is a popular option for command-line debugging, while IDEs often have integrated debuggers.
+[//]: # (@formatter:off)
+[fnd]: foundation.md
+[fnd-formatting]: foundation.md#formatting
+[fnd-naming]: foundation.md#naming-conventions
+[fnd-docs]: foundation.md#documentation-and-comments
+[Effective Modern C++]: https://www.oreilly.com/library/view/effective-modern-c/9781491908419/
+[//]: # (@formatter:on)
