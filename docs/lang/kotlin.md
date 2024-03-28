@@ -372,7 +372,7 @@ formatting rules and conventions specified herein.
 6. Rename the downloaded file to `.editorconfig`.
 6. Add the `.editorconfig` file to your project root directory.
 
-[EditorConfig File &nbsp;:fontawesome-solid-download:][JB_XML]{ .md-button .md-button--primary }
+[EditorConfig File &nbsp;:fontawesome-solid-download:][JB_EDITORCONFIG]{ .md-button .md-button--primary }
 
 ///
 /// tab | XML Config
@@ -409,6 +409,7 @@ remains clean and consistent with Kotlin best practices.
 [SonarQube]: https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/languages/kotlin/
 [AndroidLint]: https://developer.android.com/studio/write/lint
 [JB_XML]: ../assets/files/kotlin-jetbrains.xml
+[JB_EDITORCONFIG]: ../assets/files/kotlin.editorconfig
 [CodingConventions]: https://kotlinlang.org/docs/coding-conventions.html
 [AwesomeKotlin]: https://github.com/mcxiaoke/awesome-kotlin
 [AndroidKotlinGuide]: https://developer.android.com/kotlin/style-guide
