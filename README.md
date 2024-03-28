@@ -7,14 +7,8 @@ uphold the highest standards of software engineering.
 
 In the realm of code style guides, we understand that opinions vary, and decisions often balance 
 between necessity and subjectivity. However, amidst this diversity of perspectives, one principle 
-remains paramount: __consistency__. Just as collaboration and cohesion within teams foster unity, 
-a unified code style promotes clarity amidst diversity, enhancing comprehension and simplifying 
-maintenance.
-
-By adhering to a consistent style, we aim to accelerate understanding and streamline maintenance, 
-enabling engineers to navigate complex systems with ease. Championing accessibility and openness, 
-we advocate for code that remains universally understandable, transcending individual preferences 
-to embrace standards of clarity and coherence.
+remains paramount: __consistency__. By adhering to a consistent style, developers can enhance 
+readability, maintainability, and collaboration within their codebases.
 
 ## Styles
 
@@ -35,13 +29,9 @@ development environments, catering to the diverse needs of the software developm
 
 ### Technology Stack and Tools
 
-This project is built using a robust set of technologies and tools to ensure a seamless user 
-experience and easy contribution process:
-
 - **MKDocs** for a fast and user-friendly static site generation.
 - **GitHub Actions** and **GitHub Pages** for automated deployments and hosting.
-- **JavaScript**, **CSS**, and **Markdown** for interactive features, styling, and content creation.
-- **Git** for version control, facilitating collaboration and contribution.
+- **JavaScript**, **CSS**, and **Markdown**
 
 ### Repository Structure
 
@@ -54,16 +44,13 @@ We encourage contributions to GoatStyles! Before making a contribution, please r
 [contributing](docs/contributing.md) guidelines. All contributors must complete our 
 [Individual Contributor License Agreement (CLA)][CLA] before their code can be accepted.
 
-While GoatStyles is actively used internally at GoatBytes.IO, and thus contributions may be 
-selectively integrated based on our internal standards, we value and encourage public contributions. 
 Forking the repository and proposing changes through pull requests are great ways to contribute. 
 Though not all suggestions may be accepted, your contributions are highly appreciated and crucial 
 to the project's growth and diversity.
 
 ## Build Instructions
 
-To build and serve the GoatStyles site locally, follow these instructions. This process is useful 
-for previewing changes before pushing them to the main branch.
+To build and serve the GoatStyles site locally, follow these instructions:
 
 ### Prerequisites
 
@@ -112,10 +99,6 @@ Python version by running `python --version` in your terminal.
 6. **Making Changes**
     - You can now make changes to the Markdown files. The site will automatically rebuild and 
       refresh the browser page when you save changes.
-
-### Note
-
-- When you're ready to publish your changes, push them to your fork and submit a pull request according to the project's [contribution guidelines](docs/contributing).
 
 ## License
 
