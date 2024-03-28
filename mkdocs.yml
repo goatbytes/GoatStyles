@@ -1,11 +1,11 @@
 site_name: "Code Style Guides"
 site_description: "The official code style guides used by GoatBytes.IO."
-site_url: https://goatbytes.github.io/GoatStyles
+site_url: https://styles.goatbytes.io
 repo_url: https://github.com/goatbytes/GoatStyles
 repo_name: GoatStyles on GitHub
 site_author: GoatBytes.IO
 remote_branch: gh-pages
-edit_uri: ""
+edit_uri: "blob/develop/docs/"
 
 nav:
   - Home: index.md
