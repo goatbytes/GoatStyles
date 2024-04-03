@@ -120,6 +120,19 @@ To build and serve the GoatStyles site locally, follow these instructions:
     - You can now make changes to the Markdown files. The site will automatically rebuild and
       refresh the browser page when you save changes.
 
+## About GoatBytes.IO
+
+![GoatBytesLogo](https://storage.googleapis.com/ktor-goatbytes.appspot.com/images/logo/1000h/goatbytes-logo-with-text.png)
+
+At **GoatBytes.IO**, our mission is to develop secure software solutions that empower businesses to
+transform the world. With a focus on innovation and excellence, we strive to deliver cutting-edge
+products that meet the evolving needs of businesses across various industries.
+
+[![GitHub](https://img.shields.io/badge/GitHub-GoatBytes-181717?logo=github)](https://github.com/goatbytes)
+[![Twitter](https://img.shields.io/badge/Twitter-GoatBytes-1DA1F2?logo=twitter)](https://twitter.com/goatbytes)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-GoatBytes-0077B5?logo=linkedin)](https://www.linkedin.com/company/goatbytes)
+[![Instagram](https://img.shields.io/badge/Instagram-GoatBytes.io-E4405F?logo=instagram)](https://www.instagram.com/goatbytes.io/)
+
 ## License
 
 [GoatStyles][GH] is licensed under [Attribution-ShareAlike 4.0 International][LICENSE]
