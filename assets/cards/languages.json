@@ -1,0 +1,62 @@
+[
+  {
+    "title": "C++",
+    "url": "lang/cpp.md",
+    "image": "assets/img/cplusplus.svg"
+  },
+  {
+    "title": "C#",
+    "url":  "lang/csharp.md",
+    "image": "assets/img/csharp.svg"
+  },
+  {
+    "title": "Dart",
+    "url":  "lang/dart.md",
+    "image": "assets/img/dart.svg"
+  },
+  {
+    "title": "Go",
+    "url":  "lang/go.md",
+    "image": "assets/img/go.svg"
+  },
+  {
+    "title": "Java",
+    "url":  "lang/java.md",
+    "image": "assets/img/java.svg"
+  },
+  {
+    "title": "JavaScript",
+    "url":  "lang/javascript.md",
+    "image": "assets/img/javascript.svg"
+  },
+  {
+    "title": "Kotlin",
+    "url":  "lang/kotlin.md",
+    "image": "assets/img/kotlin.svg"
+  },
+  {
+    "title": "Objective-C",
+    "url":  "lang/objective-c.md",
+    "image": "assets/img/objective-c.svg"
+  },
+  {
+    "title": "Python",
+    "url":  "lang/python.md",
+    "image": "assets/img/python.svg"
+  },
+  {
+    "title": "Rust",
+    "url":  "lang/rust.md",
+    "image": "assets/img/rust.svg"
+  },
+  {
+    "title": "Swift",
+    "url":  "lang/swift.md",
+    "image": "assets/img/swift.svg"
+  },
+  {
+    "title": "TypeScript",
+    "url":  "lang/typescript.md",
+    "image": "assets/img/typescript.svg"
+  }
+]
