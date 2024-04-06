@@ -26,6 +26,8 @@ jobs:
           pip install mkdocs-minify-plugin
           pip install neoteroi-mkdocs
           pip install mkdocs-git-revision-date-localized-plugin
+          # Install custom plugin
+          pip install -e ./plugins/default_meta
 
       - name: Build MkDocs site
         run: mkdocs build
