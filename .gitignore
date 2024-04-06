@@ -12,6 +12,10 @@ node_modules/
 *.iws
 .idea/
 
+# Python package metadata directories
+*.egg-info/
+__pycache__/
+
 # Compiled SCSS
 *.css.map
 *.css.map/
