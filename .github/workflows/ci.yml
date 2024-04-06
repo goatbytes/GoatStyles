@@ -26,8 +26,11 @@ jobs:
           pip install mkdocs-minify-plugin
           pip install neoteroi-mkdocs
           pip install mkdocs-git-revision-date-localized-plugin
-          # Install custom plugin
-          pip install -e ./plugins/default_meta
+          # Use the full path for installing the custom plugin
+          pip install -e ${{ github.workspace }}/plugins/default_meta
+
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=${PYTHONPATH}:$(pwd)/plugins" >> $GITHUB_ENV
 
       - name: Build MkDocs site
         run: mkdocs build
