@@ -1,6 +1,6 @@
 # JavaScript Style Guide
 
-This guide focuses on best practices and conventions for writing clean, understandable, and
+This guide focuses on best practices and conventions for writing clean, understandable, and 
 maintainable JavaScript code. It emphasizes adherence to contemporary JavaScript standards and
 practices while also incorporating unique aspects of JavaScript programming.
 
@@ -102,8 +102,7 @@ main();
 
 ## Naming Conventions
 
-The naming conventions for Kotlin adhere to our [Foundational Code Standards][NAMING]
-with no exceptions.
+The naming conventions adhere to our [Foundational Code Standards][NAMING] with no exceptions.
 
 - **PascalCase** for classes, interfaces, enums (definitions).
 - **camelCase** for functions, variables, properties.
